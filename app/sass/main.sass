@@ -1,0 +1,218 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+@import "animations"
+@import "_mixins/buttons"
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $default-font
+	overflow-x: hidden
+	color: $text
+	input, textarea
+		border: #666 1px solid
+		outline: none
+		&:focus:required:invalid
+			border-color: red
+		&:required:valid
+			border-color: green
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+	&.img-width
+		width: 100%
+
+.text-center
+	text-align: center
+
+b, strong
+	font-weight: bold
+
+.basic-caption
+    font-family: "Montserrat Bold", sans-serif
+    color: $text
+h1
+    @extend .basic-caption
+    font-size: 38px
+    line-height: 48px
+    letter-spacing: .95px
+h2
+    @extend .basic-caption
+    font-size: 30px
+    letter-spacing: 1.05px
+h3
+    @extend .basic-caption
+    font-size: 24px
+    letter-spacing: .6px      
+h4
+    @extend .basic-caption
+    font-size: 18px
+    letter-spacing: .4px
+        
+[data-button~="btn-arrow-text"]
+    +btn-arrow-text
+    
+/* Header */
+
+.header
+    padding: 24px 0 12px 0
+    border-bottom: 1px solid rgba(#707070, .25)
+    &__links
+        display: inline-block
+        padding: 0
+        margin: .5rem 0 0 7.8rem 
+        vertical-align: sub
+        list-style-type: none
+        li
+            display: inline-block
+            a
+                font-family: "Montserrat SemiBold", sans-serif
+                font-size: 14px
+                letter-spacing: .35px
+                color: $text
+            img
+                vertical-align: baseline
+            &:first-child
+                margin-right: 46px
+                a
+                    margin-right: 2px
+    .toggle-mnu
+        display: inline-block
+        float: right
+        margin-right: 11px
+        a
+            display: block
+            text-align: center
+            margin-bottom: 5px
+        span
+            font-family: "Montserrat Regular", sans-serif
+            font-size: 12px
+            letter-spacing: .35px
+            text-transform: uppercase
+            color: #646570
+
+/* End header */
+
+/* Particles area */
+
+#wave
+    height: 325px //423px
+    overflow: hidden
+
+.wave
+    position: relative
+    &__caption
+        position: relative
+        max-width: 670px
+        margin-left: 13px
+        ul
+            padding: 0
+            margin: 0
+            list-style-type: none
+            margin-left: 18px
+            li
+                display: inline-block
+                margin-right: 24px
+                &:last-child
+                    margin-right: 0
+        h1
+            margin-left: 20px
+            margin-bottom: 27px
+        &::before
+            content: ""
+            position: absolute
+            left: 0
+            top: 0
+            background-color: $text
+            height: 100%
+            width: 2px
+    .home-top-slider
+        position: absolute
+        top: 63px
+        max-width: 700px
+
+/* End particles area */                
+
+
+
+/* Home page */
+
+main
+    .tab 
+        &.personal-client,
+        &.business
+            position: relative
+            padding: 28px 29px 19px 29px
+            transition: all .5s ease-in-out
+            p
+                font-family: $default-font
+                font-size: 14px
+                letter-spacing: .35px
+                line-height: 21px
+                color: #4f5168
+            a
+                position: absolute
+                right: 20px
+                top: 7px
+                opacity: 0
+            &:hover
+                box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08)
+                a
+                    opacity: 1
+    .custom-dots
+        position: relative
+        width: 100%
+        height: 100%
+        .slick-dots
+            width: auto
+            bottom: auto
+            top: 60px
+            right: 126px
+        li
+            background-color: #e8e8e8
+            width: 19px
+            height: 19px
+            margin: 0
+            margin-right: 20px
+            border-radius: 50%
+            &:last-child
+                margin-right: 0
+            .bg
+                position: absolute
+                left: 19%
+                top: 4px
+                width: 11px
+                height: 11px
+                background-color: #fff
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16)
+                border-radius: 50%
+    section
+        h2
+            position: relative
+            padding-bottom: 10px
+            &::before
+                content: ""
+                position: absolute
+                bottom: 0
+                left: 2px
+                width: 71px
+                height: 3px
+                background-color: $text
+                
+/* End home page */
+
+
+
+@import "media" // Always at the end
