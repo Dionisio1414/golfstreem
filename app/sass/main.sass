@@ -51,7 +51,10 @@ h1
 h2
     @extend .basic-caption
     font-size: 30px
+    text-transform: uppercase
     letter-spacing: 1.05px
+    &.wrap
+        margin-top: 1rem!important
 h3
     @extend .basic-caption
     font-size: 24px
@@ -63,6 +66,12 @@ h4
         
 [data-button~="btn-arrow-text"]
     +btn-arrow-text
+    
+[data-button~="link-simple"]
+    +link-simple
+    
+[data-button~="btn-arrow"]
+    +btn-arrow
     
 /* Header */
 
@@ -210,6 +219,176 @@ main
                 width: 71px
                 height: 3px
                 background-color: $text
+    .caption-bg
+        position: absolute
+        svg
+            width: 100vw
+            height: 102px
+    .services
+        counter-reset: heading
+        margin-top: 62px
+        h2
+            margin-top: 2rem
+        [data-button="btn-arrow-text"]
+            top: 2.5rem
+        h3
+            position: relative
+            padding-left: 25px
+            margin-bottom: 26px
+            &::before
+                position: absolute
+                bottom: -22px
+                left: -8px
+                counter-increment: heading
+                content: "0" counter(heading)""
+                font-family: "Montserrat Bold", sans-serif
+                font-size: 64px
+                opacity: .11
+                color: $subaccent
+        p
+            font-family: "OpenSans Regular", sans-serif
+            font-size: 14px
+            letter-spacing: .35px
+            line-height: 21px
+            color: $write-text
+            
+    .articles
+        margin-top: 79px
+        margin-bottom: 80px
+        h2
+            margin-top: 2.5rem
+        [data-button="btn-arrow-text"]
+            top: 2.8rem
+        .articles-arrows
+            padding: 0
+            margin: 0
+            list-style-type: none
+            display: -webkit-flex
+            display: -moz-flex
+            display: -ms-flex
+            display: -o-flex
+            display: flex
+            justify-content: flex-start
+            align-items: center
+            margin-top: 9px
+            height: 100%        
+            li
+                display: inline-block
+                &:first-child
+                    margin-right: 15px
+                    a
+                        border: none
+                        span
+                            img
+                                transform: unset
+                                margin-left: 0
+                        &:hover
+                            span
+                                left: 0px
+        &__slider
+            margin-top: 40px
+            h3
+                position: relative
+                padding-left: 26px
+                &::before
+                    content: ""
+                    position: absolute
+                    top: 0
+                    left: 0
+                    width: 3px
+                    height: 100%
+                    background-color: $caption
+            p
+                font-family: $default-font;
+                font-size: 14px
+                letter-spacing: .35px
+                margin-top: 22px
+                max-height: 84px
+                overflow: hidden
+                line-height: 21px
+                color: $write-text
+                + a
+                    font-size: 12px
+    .working
+        margin-bottom: 15%
+        h2
+            margin-top: 2.5rem
+        .right-bg
+            position: absolute
+            top: 5px
+        &__description
+            position: absolute
+            padding: 40px 32px 0 0
+            max-width: 860px
+            width: 855px
+            background-color: #fff
+            p
+                font-family: $default-font
+                font-size: 14px
+                letter-spacing: .35px
+                line-height: 21px
+                color: $write-text
+            a
+                position: absolute
+                bottom: -84px
+                z-index: 1
+    .feedback
+        h2
+            margin-top: 2.5rem
+        [data-button="btn-arrow-text"]
+            padding-right: 51px
+            top: 2.8rem
+        &__slider
+            .user-info
+                margin-bottom: 50px
+                .name
+                    display: block
+                    font-family: "Montserrat Bold", sans-serif
+                    font-size: 14px
+                    letter-spacing: .49px
+                    color: #232323
+                .city
+                    display: block
+                    font-family: $default-font
+                    font-size: 14px
+                    letter-spacing: .49px
+                    margin-bottom: 15px
+                    color: #626262
+                .rating-stars 
+                    ul 
+                        list-style-type: none
+                        padding: 0
+                        margin: 0
+                        -moz-user-select: none
+                        -webkit-user-select: none
+                        > li.star 
+                            display: inline-block
+                            i.fa 
+                                font-size: 13px
+                                color: $accent
+                            &.hover
+                                i.fa
+                                    color: #0B3D5C
+                            &.selected
+                                i.fa
+                                    color: #0B3D5C
+            .user-description
+                p
+                    position: relative
+                    font-family: $default-font
+                    font-size: 14px
+                    letter-spacing: .35px
+                    line-height: 21px
+                    padding-left: 30px
+                    color: #474747
+                    &::before
+                        content: ""
+                        position: absolute
+                        left: 0
+                        width: 3px
+                        height: 100%
+                        background-color: #0094c4
+                        opacity: .4
                 
 /* End home page */
 
