@@ -43,7 +43,8 @@ gulp.task('js', function() {
 		'app/libs/select/bootstrap-select.min.js',
         'app/libs/slick-carousel/slick/slick.js',
         'app/libs/jqueryMask/jquery.inputmask.bundle.js',
-		'app/libs/particleWave/particleWave.js' // Always at the end
+		'app/libs/particleWave/particleWave.js',
+		'app/libs/jqueryUi/jquery-ui.js' // Always at the end
 		])
 	.pipe(concat('libs.min.js'))
     .pipe(uglify()) // Mifify js (opt.)

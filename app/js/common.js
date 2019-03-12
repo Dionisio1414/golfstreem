@@ -82,5 +82,20 @@ $(function() {
           $(stars[i]).addClass('selected');
         }
     });
+    
+    $('.feedback .range-slider').slider({
+        range: "min"
+    });
+    
+    var $tabContent = $('main .clients .tab-content');
+    $('main .clients .tab-brands.left .tab-item').click(function() {
+        $(this).addClass('active').siblings().removeClass('active'); 
+        $tabContent.removeClass('active').eq($(this).index()).addClass('active');
+    });
+    
+    
+//    $('main .clients .tab-brands.right .tab-item').click(function() {
+//        $(this).addClass('active').siblings().removeClass('active'); 
+//    });
 
 });

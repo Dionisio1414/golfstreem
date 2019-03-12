@@ -1,0 +1,38 @@
+@mixin custom-form
+    input:not([type=submit])
+        border: none
+        border-bottom: 1px solid $subaccent
+        font-family: "Montserrat Regular", sans-serif
+        font-size: 14px
+        letter-spacing: .35px
+        line-height: 18px
+        padding: 0 20px 16px 20px
+        width: 96.81%
+        color: #474747
+    .send
+        position: relative
+        span
+            font-family: $semibold
+            font-size: 14px
+            text-transform: uppercase
+            position: absolute
+            left: 19px
+            top: 10px
+            background-color: #fff
+            white-space: nowrap
+            pointer-events: none
+            color: $subaccent
+            img
+                margin-left: 5px
+        &:hover
+            span
+                img
+                    margin-left: 15px
+    input[type=submit]
+        position: relative
+        background-color: transparent
+        border: 2px solid $subaccent
+        width: 91px
+        height: 45px
+        transition: all .5s ease
+        
