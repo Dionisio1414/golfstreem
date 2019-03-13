@@ -1,5 +1,36 @@
 @mixin custom-form
+    .form-row
+        div
+            > div   
+                position: relative
+                &::before
+                    content: ""
+                    position: absolute
+                    left: 0
+                    bottom: 0
+                    width: 2px
+                    background-color: $accent
+                    height: 8px
+                    z-index: 2
+                    opacity: 0
+                    transition: all .35s ease
+                &::after
+                    content: ""
+                    position: absolute
+                    right: 0
+                    bottom: 0
+                    width: 2px
+                    background-color: $accent
+                    height: 8px
+                    z-index: 2
+                    opacity: 0
+                    transition: all .35s ease
+                &.focusing
+                    &::after,
+                    &::before
+                        opacity: 1
     input:not([type=submit])
+        position: relative
         border: none
         border-bottom: 1px solid $subaccent
         font-family: "Montserrat Regular", sans-serif
@@ -7,8 +38,12 @@
         letter-spacing: .35px
         line-height: 18px
         padding: 0 20px 16px 20px
-        width: 96.81%
+        width: 100%
         color: #474747
+        transition: all .15s ease-in-out
+        &:focus
+            border-color: $accent
+            border-width: 2px
     .send
         position: relative
         span

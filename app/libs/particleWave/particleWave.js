@@ -730,11 +730,12 @@ var SEPARATION = 100,
 
     function init() {
  				var bd = document.body;
- 				var hdr = document.body.querySelector('header');
+ 				var blurContainer = document.body.querySelector('.blur-container');
+ 				var mainContainer = document.body.querySelector('.blur-container > main');
 
         container = document.getElementById('wave');
         //document.body.insertBefore(container);
- 				bd.insertBefore(container, hdr.nextSibling);
+ 				blurContainer.insertBefore(container, mainContainer);
 
         camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 10000);
         camera.position.z = 350;
