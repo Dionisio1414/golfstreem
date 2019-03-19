@@ -4,6 +4,7 @@
 @import "animations"
 @import "_mixins/buttons"
 @import "_mixins/forms"
+@import "_mixins/breadcrumbs"
 
 ::placeholder
 	color: #666
@@ -49,7 +50,7 @@ b, strong
     color: $text
 h1
     @extend .basic-caption
-    font-size: 38px
+    font-size: 48px
     line-height: 48px
     letter-spacing: .95px
 h2
@@ -76,6 +77,9 @@ h4
     
 [data-button~="btn-arrow"]
     +btn-arrow
+    
+[aria-label="breadcrumb"]
+    +custom-breadcrumbs
     
 /* Header */
 
@@ -299,6 +303,9 @@ h4
 
 .wave
     position: relative
+    .wrapper-caption
+        position: absolute
+        top: 63px
     &__caption
         position: relative
         max-width: 670px
@@ -328,6 +335,10 @@ h4
         position: absolute
         top: 63px
         max-width: 700px
+    &.home
+        h1
+            font-size: 38px
+    
 
 /* End particles area */                
 
@@ -742,8 +753,70 @@ main
             
 .homepage
     margin-bottom: 92px
+                
             
 /* End home page */
+
+
+/* Blog page */
+
+.blog
+    .posts
+        padding: 0 0 90px 0
+        .container
+            .row
+                margin-bottom: 50px
+                &:last-child
+                    margin-bottom: 0
+        &__caption
+            position: relative
+            padding-left: 25px
+            padding-right: 25px
+            &::before
+                content: ""
+                position: absolute
+                left: 0
+                top: 0
+                background-color: $caption
+                height: 100%
+                width: 2px
+        &__description
+            p
+                font-family: $default-font
+                font-size: 14px 
+                line-height: 21px
+                letter-spacing: .35px
+                color: $write-text
+            a
+                font-size: 12px
+    .pagination
+        nav
+            ul
+                padding: 0
+                margin: 0
+                list-style-type: none
+                text-align: center
+                li
+                    display: inline-block
+                    margin-right: 15px
+                    a
+                        font-family: "Montserrat Regular", sans-serif
+                        font-size: 14px
+                        letter-spacing: .35px
+                        color: #d5d5d5
+                    &.active
+                        a
+                            color: #0294c1
+                    &:first-child
+                        transform: rotateY(-180deg)
+                        a
+                            border-color: #d5d5d5
+                    &:last-child
+                        margin-right: 0
+
+    
+
+/* End blog page */
 
 
 
