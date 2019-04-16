@@ -12,7 +12,8 @@ var gulp              = require('gulp'),
 		autoprefixer  = require('gulp-autoprefixer'),
 		notify        = require("gulp-notify"),
 		rsync         = require('gulp-rsync'),
-        imagemin      = require('gulp-imagemin');
+        imagemin      = require('gulp-imagemin'),
+        svgSprite     = require('gulp-svg-sprite');
 
 gulp.task('browser-sync', function() {
 	browserSync({
@@ -50,6 +51,19 @@ gulp.task('js', function() {
     .pipe(uglify()) // Mifify js (opt.)
 	.pipe(gulp.dest('app/js'))
 	.pipe(browserSync.reload({ stream: true }))
+});
+
+gulp.task('svgSprite', function () {
+    return gulp.src('app/img/icons/*.svg') // svg files for sprite
+        .pipe(svgSprite({
+                mode: {
+                    stack: {
+                        sprite: "../sprite.svg"  //sprite file name
+                    }
+                },
+            }
+        ))
+        .pipe(gulp.dest('app/img/sprite/'));
 });
 
 //gulp.task('rsync', function() {

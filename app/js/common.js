@@ -35,11 +35,11 @@ $(function() {
         });
     });
     
-    $('main .relationship form .form-row div > div input').focus(function() {
+    $('main .relationship form .form-row div > div input, main .relationship form .form-row div > div textarea').focus(function() {
         $(this).parent().addClass('focusing'); 
     });
     
-    $('main .relationship form .form-row div > div input').blur(function() {
+    $('main .relationship form .form-row div > div input, main .relationship form .form-row div > div textarea').blur(function() {
         $(this).parent().removeClass('focusing'); 
     });
     
@@ -131,10 +131,11 @@ $(function() {
         $(this).removeClass('rotate');
         $(this).find('ul').slideUp();
     });
-    
+
     
 //    $('main .clients .tab-brands.right .tab-item').click(function() {
 //        $(this).addClass('active').siblings().removeClass('active'); 
 //    });
 
 });
+

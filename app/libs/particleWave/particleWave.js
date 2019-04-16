@@ -731,11 +731,23 @@ var SEPARATION = 100,
     function init() {
  				var bd = document.body;
  				var blurContainer = document.body.querySelector('.blur-container');
- 				var mainContainer = document.body.querySelector('.blur-container > main');
+ 				var mainContainer = document.body.querySelectorAll('.blur-container > main');
+ 				var errorContainer = document.body.querySelector('.blur-container > section.error');
+ 				var ft = document.body.querySelector('footer');
 
         container = document.getElementById('wave');
         //document.body.insertBefore(container);
- 				blurContainer.insertBefore(container, mainContainer);
+
+        if(mainContainer.length === 0) {
+        		blurContainer.insertBefore(container, ft);
+        }
+
+        if(!mainContainer.length === 0) {
+        		blurContainer.insertBefore(container, mainContainer);
+        }
+
+        // blurContainer.insertBefore(container, mainContainer);
+
 
         camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 10000);
         camera.position.z = 350;

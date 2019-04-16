@@ -1,5 +1,9 @@
 @mixin custom-form
     .form-row
+        margin: 0
+        [class*=col-],
+        .col
+            padding: 0
         div
             > div   
                 position: relative
@@ -29,7 +33,8 @@
                     &::after,
                     &::before
                         opacity: 1
-    input:not([type=submit])
+    input:not([type=submit]),
+    textarea
         position: relative
         border: none
         border-bottom: 1px solid $subaccent
@@ -44,6 +49,9 @@
         &:focus
             border-color: $accent
             border-width: 2px
+    textarea
+        padding-bottom: 0
+        resize: none
     .send
         position: relative
         span
