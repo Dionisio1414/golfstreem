@@ -1,0 +1,22 @@
+@mixin service-block($ct)
+    margin-bottom: 55px
+    h3
+        position: relative
+        padding-left: 31px
+        margin-bottom: 26px
+        &::before
+            position: absolute
+            bottom: -22px
+            left: -2px
+            counter-increment: $ct
+            content: "0" counter($ct)""
+            font-family: "Montserrat Bold", sans-serif
+            font-size: 64px
+            opacity: .11
+            color: $subaccent
+    p
+        font-family: "OpenSans Regular", sans-serif
+        font-size: 14px
+        letter-spacing: .35px
+        line-height: 21px
+        color: $write-text
