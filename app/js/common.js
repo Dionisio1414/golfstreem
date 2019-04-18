@@ -55,7 +55,7 @@ $(function() {
         nextArrow: $('.articles-arrows li:last-child a')
     });
     
-    var $h2 = $('.dots-caption h2');
+    var $h2 = $('.homepage .dots-caption h2');
     $h2.each(function() {
         var $valueCaption = $(this).text();
         if($valueCaption.length > 11) $(this).css('max-width', '200px').addClass('wrap');    
@@ -133,11 +133,11 @@ $(function() {
     });
     
     var $attendanceTabs = $('.attendance__tabs .tab a'),
-        $tabContent = $('.attendance .tabs-content .tab');
+        $tabContents = $('.attendance .tabs-content .tab');
     $attendanceTabs.click(function(e) {
         e.preventDefault();
         $(this).parent().addClass('active').siblings().removeClass('active');
-        $tabContent.removeClass('active').eq($(this).parent().index()).addClass('active');
+        $tabContents.removeClass('active').eq($(this).parent().index()).addClass('active');
     });
 
     
