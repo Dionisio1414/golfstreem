@@ -1,6 +1,7 @@
 $(function() {
     var $homeTopSlider = $('.home-top-slider'),
-        $fbSlider = $('.feedback__slider');
+        $fbSlider = $('.feedback__slider'),
+        $gallerySlider = $('.gallery__slider');
     $homeTopSlider.slick({
         dots: true,
         customPaging: function(slide, index) {
@@ -13,6 +14,12 @@ $(function() {
         slidesToScroll: 1
     });
     
+    $gallerySlider.slick({
+        slidesToShow: 4,
+        arrows: true, 
+        prevArrow: $('.gallery__arows li.prev a'),
+        nextArrow: $('.gallery__arows li.next a')
+    })
     
     var $hamburgerIcon = $('.header .toggle-mnu'),
         $blr = $('.blur-container'),
@@ -55,7 +62,7 @@ $(function() {
         nextArrow: $('.articles-arrows li:last-child a')
     });
     
-    var $h2 = $('.homepage .dots-caption h2');
+    var $h2 = $('.homepage .dots-caption h2, .about-company .dots-caption h2');
     $h2.each(function() {
         var $valueCaption = $(this).text();
         if($valueCaption.length > 11) $(this).css('max-width', '200px').addClass('wrap');    
@@ -139,6 +146,39 @@ $(function() {
         $(this).parent().addClass('active').siblings().removeClass('active');
         $tabContents.removeClass('active').eq($(this).parent().index()).addClass('active');
     });
+    
+    
+    var $accordionItem = $('.prices .container:last-child .accordion__item');
+    $accordionItem.click(function(e) {
+        $(this).toggleClass('open').find('.desc').slideToggle();
+    });
+    
+    var $priceTab = $('.prices__tab-content .tab'),
+        $tabLinks = $('.prices__tabs ul li');
+    $tabLinks.on('click', 'a', function(e) {
+        e.preventDefault();
+    });
+    $tabLinks.click(function() {
+        $(this).addClass('active').siblings().removeClass('active');
+        $priceTab.removeClass('active').eq($(this).index()).addClass('active');
+    });
+    
+    var $companyContentArea = $('.company__tab-content .tab .scroll-box');
+    $companyContentArea.niceScroll({
+        cursoropacitymin: 1,
+        cursorborderradius: "0px",
+        background: "#e8e8e8",
+        cursorwidth: "10px"
+    });
+    
+    
+    var $companyTabItems = $('.company__tabs .tab-item'),
+        $companyTabAreas = $('.company__tab-content .tab');
+    $companyTabItems.click(function() {
+        $(this).addClass('active').siblings().removeClass('active'); 
+        $companyTabAreas.removeClass('active').eq($(this).index()).addClass('active');
+    });
+    
 
     
 //    $('main .clients .tab-brands.right .tab-item').click(function() {
