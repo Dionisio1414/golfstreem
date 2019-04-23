@@ -1,4 +1,5 @@
 $(function() {
+    var $rangeSlider = $('main .feedback .range-slider');
     var $homeTopSlider = $('.home-top-slider'),
         $fbSlider = $('.feedback__slider'),
         $gallerySlider = $('.gallery__slider');
@@ -8,11 +9,24 @@ $(function() {
             return `<div class="bg"></div>`;
         } 
     });
+    var amount;
+    $fbSlider.on('init', function(event, slick) {
+        amount = slick.slideCount;
+    });
+    
+    $fbSlider.on('afterChange', function(e, slick, currentSlide, nextSlide) {
+        //var $calc = ( (nextSlide) / (slick.slideCount-1) ) * 100;
+//        $rangeSlider.find('div').css('width', $calc + "%");
+//        $rangeSlider.find('span').css('left', $calc + "%");
+        $rangeSlider.attr('data-count', currentSlide + 1);
+    });
     
     $fbSlider.slick({
         slidesToShow: 3,
         slidesToScroll: 1
     });
+    
+    console.log(amount);
     
     $gallerySlider.slick({
         slidesToShow: 4,
@@ -32,21 +46,12 @@ $(function() {
         }, 600);
     });
     
-    $blr.click(function() {
-        $(this).removeClass('bluring');
-        $popupMenu.animate({
-            opacity: 0,
-            top: 0
-        }, 500, function() {
-           $popupMenu.hide(); 
-        });
-    });
     
-    $('main .relationship form .form-row div > div input, main .relationship form .form-row div > div textarea').focus(function() {
+    $('form .form-row div > div input, form .form-row div > div textarea').focus(function() {
         $(this).parent().addClass('focusing'); 
     });
     
-    $('main .relationship form .form-row div > div input, main .relationship form .form-row div > div textarea').blur(function() {
+    $('form .form-row div > div input, form .form-row div > div textarea').blur(function() {
         $(this).parent().removeClass('focusing'); 
     });
     
@@ -121,7 +126,12 @@ $(function() {
     });
     
     $('.feedback .range-slider').slider({
-        range: "min"
+        range: "min",
+        min: 0,
+        max: amount, 
+        slide: function(e, ui) {
+            $fbSlider.slick('slickGoTo', ui.value);
+        }
     });
     
     var $tabContent = $('main .clients .tab-content');
@@ -179,11 +189,72 @@ $(function() {
         $companyTabAreas.removeClass('active').eq($(this).index()).addClass('active');
     });
     
-
     
-//    $('main .clients .tab-brands.right .tab-item').click(function() {
-//        $(this).addClass('active').siblings().removeClass('active'); 
-//    });
+    var $makeOrder = $('.header__links li').last().find('a'),
+        $srvcLinks = $('.attendance__navigation .order-service a, .languages__navigation .order-service a');
+    $makeOrder.click(function(e) {
+        e.preventDefault();
+        $('.modal-form.orders')
+            .css('display', 'block')
+            .animate({
+                opacity: 1
+            }, 350);
+    });
+    
+    $srvcLinks.click(function(e) {
+        e.preventDefault();
+        $('.modal-form.orders').css('display', 'block').animate({
+            opacity: 1
+        }, 350);
+    });
+    
+    $('.modal-form .modal-close').click(function() {
+        $('.modal-form')
+            .animate({
+                opacity: 0
+            }, 250, function() {
+                $(this).css('display', 'none');
+            });
+        $blr.removeClass('bluring');
+    });
+    
+    var $calculatePriceBtn = $('.prices__calculate a');
+    $calculatePriceBtn.click(function(e) {
+        e.preventDefault();
+        $('.modal-form.calculating')
+            .css('display', 'block')
+            .animate({
+                opacity: 1
+            }, 350);
+        $blr.addClass('bluring');
+    });
 
+    $(window).scroll(function() {
+        if($(this).scrollTop() >= 100) {
+            $('header').addClass('sticky');  
+        } else {
+            $('header').removeClass('sticky');   
+        }
+    });
+    
+    var $languagesLinks = $('.languages__navigation .anchors ul li a'),
+        $subServiceLinks = $('.attendance__navigation .anchors ul li a');
+    $languagesLinks.click(function(e) {
+        e.preventDefault();
+        var $href = $(this).attr('href'), $top = $($href).offset().top;
+        $('html, body').animate({
+            scrollTop: $top
+        }, 800);
+    });
+    
+    $subServiceLinks.click(function(e) {
+        e.preventDefault();
+        var $href = $(this).attr('href'), $top = $($href).offset().top;
+        $('html, body').animate({
+            scrollTop: $top
+        }, 800);
+    });
+    
 });
-
+    
+    

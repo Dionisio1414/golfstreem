@@ -88,6 +88,30 @@ gulp.task('svgSprite', function () {
 //        .pipe(gulp.dest('app/img/min'))
 //});
 
+
+gulp.task('build', ['styles', 'js'], function() {
+	
+	var buildCss = gulp.src([
+	'app/css/main.min.css',
+	])
+	.pipe(gulp.dest('dist/css'));
+	
+	var buildFonts = gulp.src('app/fonts/**/*')
+	.pipe(gulp.dest('dist/fonts'));
+	
+	var buildImg = gulp.src('app/img/**/*')
+	.pipe(gulp.dest('dist/img'));
+	
+	var buildJs = gulp.src([
+		'app/js/libs.min.js',
+		'app/js/common.js'
+	])
+	.pipe(gulp.dest('dist/js'));
+	
+	var buildHtml = gulp.src('app/*.html')
+	.pipe(gulp.dest('dist'));
+});
+
 gulp.task('watch', ['styles', 'js', 'browser-sync'], function() {
 	gulp.watch('app/'+syntax+'/**/*.'+syntax+'', ['styles']);
 	gulp.watch(['libs/**/*.js', 'app/js/common.js'], ['js']);

@@ -27,6 +27,80 @@
 </head>
 
 <body>
+    
+    <!-- Make order modal -->
+    
+    <div class="modal-form calculating">
+        <p class="modal-close">
+            <img src="img/icons/arrow-left.svg" alt="">
+            <span>Закрыть</span>
+        </p>
+        <div class="modal-top">
+            <h2>Рассчет стоимости</h2>
+            <p>Для расчета стоимости заполните форму. После ее обработки с Вами свяжется менеджер для оглашения стоимости услуги.</p>
+        </div>
+        <div class="modal-bottom">
+            <form method="post">
+                <div class="form-row">
+                    <div class="col">
+                        <div>
+                            <input type="text" name="name" placeholder="Ваше имя">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <input type="text" name="telephone" placeholder="Телефон">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <div class="select-language">
+                            <input type="text" name="begin-language" value="С какого языка">
+                            <img src="img/icons/arrow-half-bottom.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="select-language">
+                            <input type="text" name="end-language" value="На какой язык">
+                            <img src="img/icons/arrow-half-bottom.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-6">
+                        <div class="message">
+                            <textarea name="message" placeholder="Комментарий"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <div class="upload">
+                            <label for="files">
+                                <img src="img/icons/download.svg" alt="">
+                                <span>
+                                    Добавить файлы 
+                                </span>
+                            </label>
+                            <input type="file" id="files">
+                        </div>
+                    </div>
+                    <div class="col d-flex justify-content-end">
+                        <div class="send submit">
+                           <input type="submit" value="">
+                           <span>
+                               Расчитать стоимость
+                               <img src="img/icons/arrow-right.svg" alt=""> 
+                           </span>
+                       </div>
+                    </div>
+                </div>                
+            </form>
+        </div>
+    </div>
+    <div class="modal-overlay"></div>
+    <!-- End order modal -->
 
 	<!-- Custom HTML -->
     <header class="header">

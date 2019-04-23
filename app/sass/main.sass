@@ -85,11 +85,135 @@ h4
 [aria-label="breadcrumb"]
     +custom-breadcrumbs
     
+/* Modal forms */ 
+
+.modal-form
+    position: fixed
+    top: 0
+    right: 0
+    background-color: #fff
+    width: 380px
+    height: 100vh
+    padding: 100px 30px
+    opacity: 0
+    display: none
+    z-index: 35
+    .modal-close
+        position: absolute
+        left: 30px
+        top: 56px
+        cursor: pointer
+        span 
+            font-family: $semibold
+            font-size: 14px
+            text-transform: uppercase
+            letter-spacing: .35px
+            margin-left: 8px
+            color: $subaccent
+    .modal-top
+        margin-bottom: 20px
+        margin-top: 15px
+        h2
+            max-width: 137px
+            line-height: 42px
+        p
+            font-size: 14px
+            letter-spacing: .35px
+            line-height: 21px
+            color: $write-text
+    .modal-bottom
+        form
+            +custom-form
+            .upload
+                width: 100%
+                margin: 39px 0
+            .send
+                margin-right: 35px
+                margin-top: 39px
+                &::before,
+                &::after
+                    display: none
+            .form-row:first-child
+                > div
+                    margin-bottom: 20px
+                    &:last-of-type
+                        margin-bottom: 0
+            .message
+                &.focusing
+                    &::before,
+                    &::after
+                        bottom: 8px
+    &.calculating
+        width: 730px
+        height: 591px
+        padding: 43px 49px
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        .modal-top
+            position: relative
+            padding-left: 25px
+            h2
+                max-width: none
+            &::before
+                content: ""
+                position: absolute
+                top: 0
+                left: 0
+                height: 100%
+                width: 2px
+                background-color: $caption
+        .modal-close
+            top: auto
+            left: 50px
+            bottom: 45px
+        .modal-bottom
+            .form-row
+                &:nth-child(1),
+                &:nth-child(2),
+                &:nth-child(4)
+                    > div
+                        &:first-child
+                            margin-right: 15px
+                        &:last-child
+                            margin-left: 15px
+                .send
+                    margin-top: 60px
+                .message
+                    margin-right: 15px
+                    margin-top: 30px
+                .upload
+                    margin-top: 50px
+                    
+.modal-overlay
+    position: fixed
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    background-color: #000
+    width: 100%
+    height: 100%
+    opacity: .35
+    z-index: 30
+    opacity: 0
+    display: none
+    cursor: pointer
+    
+/* End modals form */    
+    
 /* Header */
 
 .header
     padding: 24px 0 12px 0
     border-bottom: 1px solid rgba(#707070, .25)
+    &.sticky
+        position: fixed
+        width: 100%
+        background-color: #fff
+        z-index: 999
+    &__logo
+        display: inline-block
     &__links
         display: inline-block
         padding: 0
@@ -344,6 +468,9 @@ h4
     &.home
         h1
             font-size: 38px
+    &:not(.home)
+        + main
+            margin-top: -80px
     
 
 /* End particles area */                
@@ -472,10 +599,12 @@ main
     .services
         counter-reset: heading
         margin-top: 62px
+        .dots-caption
+            margin-bottom: 80px
         h2
-            margin-top: 2rem
+            margin-top: 2.5rem
         [data-button="btn-arrow-text"]
-            top: 2.5rem
+            top: 4rem
         h3
             position: relative
             padding-left: 31px
@@ -577,6 +706,8 @@ main
                 z-index: 1
     .feedback
         margin-bottom: 85px
+        .dots-caption
+            margin-bottom: 30px
         h2
             margin-top: 2.5rem
         [data-button="btn-arrow-text"]
@@ -696,6 +827,7 @@ main
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.09)
             padding: 48px
             height: 100%
+            margin-left: 1px
             display: none
             .description
                 font-family: "Montserrat Regular", sans-serif
@@ -1593,7 +1725,7 @@ main
     .dots-caption
         margin-bottom: 65px
         h2
-            margin-top: 5.5rem
+            margin-top: 3.5rem!important
     &__description
         p
             font-size: 14px

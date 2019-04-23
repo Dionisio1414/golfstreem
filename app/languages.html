@@ -27,6 +27,70 @@
 </head>
 
 <body>
+     <!-- Make order modal -->
+    
+    <div class="modal-form orders">
+        <p class="modal-close">
+            <img src="img/icons/arrow-left.svg" alt="">
+            <span>Назад</span>
+        </p>
+        <div class="modal-top">
+            <h2>ЗАКАЗ УСЛУГИ</h2>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi archi.</p>
+        </div>
+        <div class="modal-bottom">
+            <form method="post">
+                <div class="form-row">
+                    <div class="col-12">
+                        <div>
+                            <input type="text" name="name" placeholder="Ваше имя">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div>
+                            <input type="text" name="telephone" placeholder="Телефон">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="message">
+                            <textarea name="message" placeholder="Комментарий"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="upload">
+                        <label for="files">
+                            <img src="img/icons/download.svg" alt="">
+                            <span>
+                                Добавить файлы 
+                            </span>
+                        </label>
+                        <input type="file" id="files">
+                    </div>
+                </div>                
+                <div class="form-row">
+                    <div class="col-6">
+                        <input type="radio" name="client-business" id="client">
+                        <label for="client">Частный клиент</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="radio" name="client-business" id="business">
+                        <label for="business">Бизнес</label>
+                    </div>
+                </div>
+                <div class="form-row d-flex justify-content-end">
+                    <div class="send">
+                        <input type="submit" value="">
+                        <span>Отправить
+                            <img src="img/icons/arrow-right.svg" alt="">
+                        </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-overlay"></div>
+    <!-- End order modal -->
 
 	<!-- Custom HTML -->
     <header class="header">
@@ -142,7 +206,7 @@
     </div>
     
    <main role="main">
-       <section class="languages">
+       <section class="languages" id="languages">
            <div class="container">
                <div class="row">
                    <div class="col-8">
@@ -339,8 +403,8 @@
                             </div>
                             <div class="anchors">
                                 <ul>
-                                    <li class="active"><a href="#">Основные языки</a></li>
-                                    <li><a href="#">Дополнительные языки</a></li>
+                                    <li class="active"><a href="#languages">Основные языки</a></li>
+                                    <li><a href="#adding-languages">Дополнительные языки</a></li>
                                 </ul>
                             </div>
                        </div>
@@ -348,7 +412,7 @@
                </div>
            </div>
        </section>
-       <section class="adding-languages">
+       <section class="adding-languages" id="adding-languages">
            <div class="container">
                <div class="row">
                   <div class="col-8">

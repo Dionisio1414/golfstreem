@@ -28,7 +28,72 @@
 
 <body>
 
-	<!-- Custom HTML -->
+    <!-- Make order modal -->
+    
+    <div class="modal-form orders">
+        <p class="modal-close">
+            <img src="img/icons/arrow-left.svg" alt="">
+            <span>Назад</span>
+        </p>
+        <div class="modal-top">
+            <h2>ЗАКАЗ УСЛУГИ</h2>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi archi.</p>
+        </div>
+        <div class="modal-bottom">
+            <form method="post">
+                <div class="form-row">
+                    <div class="col-12">
+                        <div>
+                            <input type="text" name="name" placeholder="Ваше имя">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div>
+                            <input type="text" name="telephone" placeholder="Телефон">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="message">
+                            <textarea name="message" placeholder="Комментарий"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="upload">
+                        <label for="files">
+                            <img src="img/icons/download.svg" alt="">
+                            <span>
+                                Добавить файлы 
+                            </span>
+                        </label>
+                        <input type="file" id="files">
+                    </div>
+                </div>                
+                <div class="form-row">
+                    <div class="col-6">
+                        <input type="radio" name="client-business" id="client">
+                        <label for="client">Частный клиент</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="radio" name="client-business" id="business">
+                        <label for="business">Бизнес</label>
+                    </div>
+                </div>
+                <div class="form-row d-flex justify-content-end">
+                    <div class="send">
+                        <input type="submit" value="">
+                        <span>Отправить
+                            <img src="img/icons/arrow-right.svg" alt="">
+                        </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-overlay"></div>
+    <!-- End order modal -->
+    
+   	<!-- Custom HTML -->
     <header class="header">
         <div class="container">
             <div class="row">
@@ -328,6 +393,7 @@
                 </div>
             </div>
             <div class="feedback__slider container mt-5">
+                    
                 <div class="row d-flex">
                     <div class="col">
                         <div class="row user-info">
@@ -367,6 +433,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="row d-flex">
                     <div class="col">
                         <div class="row user-info ml-auto">
@@ -406,6 +473,46 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="row d-flex">
+                    <div class="col">
+                        <div class="row user-info ml-auto">
+                            <div class="col-5">
+                                <img src="img/slide-man.jpg" class="img-responsive img-width" alt="">
+                            </div>
+                            <div class="col-7">
+                                <span class="name">Иванов Иван</span>
+                                <span class="city">г. Киев</span>
+                                <div class="rating-stars">
+                                    <ul class="stars">
+                                      <li class="star" title="Poor" data-value="1">
+                                        <i class='fa fa-star fa-fw'></i>
+                                      </li>
+                                      <li class="star" title="Fair" data-value="2">
+                                        <i class="fa fa-star fa-fw"></i>
+                                      </li>
+                                      <li class="star" title="Good" data-value="3">
+                                        <i class='fa fa-star fa-fw'></i>
+                                      </li>
+                                      <li class="star" title='Excellent' data-value="4">
+                                        <i class="fa fa-star fa-fw"></i>
+                                      </li>
+                                      <li class="star" title="WOW!!!" data-value="5">
+                                        <i class="fa fa-star fa-fw"></i>
+                                      </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row user-description ml-auto">
+                            <div class="col">
+                                <p>
+                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta. Sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>         
                 <div class="row d-flex">
                     <div class="col">
                         <div class="row user-info ml-auto">
