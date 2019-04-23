@@ -35,17 +35,29 @@ $(function() {
         nextArrow: $('.gallery__arows li.next a')
     })
     
-    var $hamburgerIcon = $('.header .toggle-mnu'),
+    var $hamburgerIcon = $('.header .toggle-mnu a'),
         $blr = $('.blur-container'),
         $popupMenu = $('.popup-menu');
-    $hamburgerIcon.click(function() {
-        $blr.addClass('bluring');
-        $popupMenu.show().animate({
-            opacity: 1,
-            top: 95 + "px"
-        }, 600);
+    $hamburgerIcon.click(function(e) {
+        e.preventDefault();
+        if(!$(this).hasClass('open')) {
+            $(this).addClass('open');
+            $blr.addClass('bluring');
+            $popupMenu.show().animate({
+                opacity: 1,
+                top: 95 + "px"
+            }, 600);
+        } else {
+            $(this).removeClass('open');
+            $blr.removeClass('bluring');
+            $popupMenu.animate({
+                opacity: 0,
+                top: 0 + "px"
+            }, 600, function() {
+                $(this).hide();
+            });
+        }
     });
-    
     
     $('form .form-row div > div input, form .form-row div > div textarea').focus(function() {
         $(this).parent().addClass('focusing'); 
@@ -219,6 +231,8 @@ $(function() {
     });
     
     var $calculatePriceBtn = $('.prices__calculate a');
+    var $hdr = $('header');
+    var $dotsSection = $('main .caption-bg');
     $calculatePriceBtn.click(function(e) {
         e.preventDefault();
         $('.modal-form.calculating')
@@ -231,10 +245,21 @@ $(function() {
 
     $(window).scroll(function() {
         if($(this).scrollTop() >= 100) {
-            $('header').addClass('sticky');  
+            $hdr.addClass('sticky');  
         } else {
-            $('header').removeClass('sticky');   
+            $hdr.removeClass('sticky');   
         }
+        
+        $dotsSection.each(function(i, el) {
+            var top = $(el).offset().top - 300,
+                bottom = top + $(el).height(),
+                scroll = $(window).scrollTop(),
+                id = i;
+            if(scroll > top && scroll < bottom) {
+                $dotsSection.removeClass('active');
+                $dotsSection.eq(id).addClass('active');
+            }
+        });
     });
     
     var $languagesLinks = $('.languages__navigation .anchors ul li a'),
