@@ -1,4 +1,7 @@
 $(function() {
+    
+    new WOW().init();
+    
     var $rangeSlider = $('main .feedback .range-slider');
     var $homeTopSlider = $('.home-top-slider'),
         $fbSlider = $('.feedback__slider'),
@@ -148,6 +151,13 @@ $(function() {
     
     var $tabContent = $('main .clients .tab-content');
     $('main .clients .tab-brands.left .tab-item').click(function() {
+        $('main .clients .tab-brands.right .tab-item').removeClass('active');
+        $(this).addClass('active').siblings().removeClass('active'); 
+        $tabContent.removeClass('active').eq($(this).index()).addClass('active');
+    });
+    
+    $('main .clients .tab-brands.right .tab-item').click(function() {
+        $('main .clients .tab-brands.left .tab-item').removeClass('active');
         $(this).addClass('active').siblings().removeClass('active'); 
         $tabContent.removeClass('active').eq($(this).index()).addClass('active');
     });
@@ -249,17 +259,6 @@ $(function() {
         } else {
             $hdr.removeClass('sticky');   
         }
-        
-        $dotsSection.each(function(i, el) {
-            var top = $(el).offset().top - 300,
-                bottom = top + $(el).height(),
-                scroll = $(window).scrollTop(),
-                id = i;
-            if(scroll > top && scroll < bottom) {
-                $dotsSection.removeClass('active');
-                $dotsSection.eq(id).addClass('active');
-            }
-        });
     });
     
     var $languagesLinks = $('.languages__navigation .anchors ul li a'),
@@ -279,6 +278,50 @@ $(function() {
             scrollTop: $top
         }, 800);
     });
+    
+    var $fbSocialBtn = $('.feedback-socials > a'),
+        $fbSocialLi = $('.feedback-socials .hidden-socials li');
+    $fbSocialBtn.click(function(e) {
+        e.preventDefault();
+        if(!$(this).hasClass('opened')) {
+            $(this).addClass('opened');
+            $fbSocialLi.eq(0).delay(300).animate({
+                opacity: 1
+            }, 'fast');
+            $fbSocialLi.eq(1).delay(200).animate({
+                opacity: 1
+            }, 'fast');
+            $fbSocialLi.eq(2).delay(100).animate({
+                opacity: 1
+            }, 'fast');
+        } else {
+            $(this).removeClass('opened');
+            $fbSocialLi.eq(0).delay(300).animate({
+                opacity: 0
+            }, 'fast');
+            $fbSocialLi.eq(1).delay(200).animate({
+                opacity: 0
+            }, 'fast');
+            $fbSocialLi.eq(2).delay(100).animate({
+                opacity: 0
+            }, 'fast');
+        }
+    });
+    
+    
+//    $(document).on('scroll', function (){
+//        $('.caption-bg').each(function(i, el) {
+//            var postion = $(el).offset().top,
+//                height = $(el).height(),
+//                scroll = $(document).scrollTop(),
+//                elem = $(el)
+//            if(scroll  > postion && scroll < (postion + height) ) {
+//                $('.caption-bg').eq(i).addClass('dots-fill');
+//            } else {
+//                $('.caption-bg').eq(i).removeClass('dots-fill');
+//            }   
+//        })
+//    });
     
 });
     

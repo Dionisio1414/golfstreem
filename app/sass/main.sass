@@ -85,6 +85,11 @@ h4
 [aria-label="breadcrumb"]
     +custom-breadcrumbs
     
+.dots-fill
+    svg
+        g
+            fill: $subaccent
+    
 /* Modal forms */ 
 
 .modal-form
@@ -214,10 +219,12 @@ h4
         z-index: 999
     &__logo
         display: inline-block
+        img
+            height: 65px
     &__links
         display: inline-block
         padding: 0
-        margin: .5rem 0 0 7.8rem 
+        margin: 1.5rem 0 0 7.8rem 
         vertical-align: sub
         list-style-type: none
         li
@@ -259,6 +266,7 @@ h4
         display: inline-block
         float: right
         margin-right: 11px
+        margin-top: 10px
         cursor: pointer
         a
             position: relative
@@ -470,6 +478,108 @@ h4
         
 /* End popup menu */
 
+
+/* Feedback button's  */
+
+.feedback-socials
+    position: fixed
+    bottom: 50px
+    right: 130px
+    a
+        display: block
+        text-decoration: none
+        span 
+            position: relative
+            display: inline-block
+            vertical-align: middle
+            font-size: 14px
+            margin-left: 20px
+            letter-spacing: .35px
+            color: $write-text
+    .hidden-socials
+        padding: 0
+        margin: 0
+        list-style-type: none
+        margin-bottom: 39px
+        display: flex
+        flex-direction: column
+        margin-bottom: 25px
+        li
+            margin-bottom: 22px
+            opacity: 0
+            &:nth-child(1)
+                div
+                    background-color: #61deb8
+                span
+                    &::before
+                        background-color: #61deb8
+            &:nth-child(2)
+                div
+                    background-color: #61a8de
+                span
+                    &::before
+                        background-color: #61a8de
+            &:nth-child(3)
+                margin-bottom: 0
+                div
+                    background-color: #de6161
+                span
+                    &::before
+                        background-color: #de6161
+        span
+            &::before
+                content: ""
+                width: 4px
+                height: 4px
+                position: absolute
+                left: -13px
+                top: 10px
+                border-radius: 50%
+                background-color: #000
+            
+    div
+        position: relative
+        display: inline-block
+        vertical-align: middle
+        border-radius: 50%
+        width: 41px
+        height: 41px
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.09)
+        cursor: pointer
+        img
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+    > a 
+        div
+            width: 45px
+            height: 45px
+            background-color: $subaccent
+            animation: pulse-1 1.5s infinite .5s
+            &::before
+                content: ""
+                position: absolute
+                width: 44px
+                height: 44px
+                border-radius: 50%
+                animation: pulse-2 1.5s infinite .5s
+        span
+            font-family: "Montserrat SemiBold", sans-serif
+            letter-spacing: .49px
+            color: $subaccent
+        &.opened
+            div
+                animation: none
+                &::before
+                    animation: none
+                img
+                    transform: translate(-50%,-50%) rotate(82deg)
+
+
+/*  End feedback button's */
+
+
 /* Particles area */
 
 #wave
@@ -495,6 +605,15 @@ h4
                 margin-right: 24px
                 &:last-child
                     margin-right: 0
+                a
+                    outline: none
+                    svg
+                        use
+                            transition: all .35s ease           
+                    &:hover
+                        svg
+                            use
+                                fill: $subaccent
         h1
             margin-left: 20px
             margin-bottom: 27px
@@ -617,6 +736,8 @@ main
             border-radius: 50%
             &:last-child
                 margin-right: 0
+            //&.slick-active
+                background-color: $subaccent
             .bg
                 position: absolute
                 left: 19%
@@ -733,7 +854,7 @@ main
                 + a
                     font-size: 12px
     .working
-        margin-bottom: 25%
+        margin-bottom: 17%
         h2
             margin-top: 2.5rem
         .right-bg
