@@ -12,15 +12,18 @@ $(function() {
             return `<div class="bg"></div>`;
         } 
     });
+    
+    $homeTopSlider.on('afterChange', function(e, slick, currentSlide, nextSlide) {
+        var $crSlide = currentSlide; 
+        $('main .custom-dots li').eq($crSlide).addClass('slick-active').siblings().removeClass('slick-active');
+    });
+    
     var amount;
     $fbSlider.on('init', function(event, slick) {
         amount = slick.slideCount;
     });
     
     $fbSlider.on('afterChange', function(e, slick, currentSlide, nextSlide) {
-        //var $calc = ( (nextSlide) / (slick.slideCount-1) ) * 100;
-//        $rangeSlider.find('div').css('width', $calc + "%");
-//        $rangeSlider.find('span').css('left', $calc + "%");
         $rangeSlider.attr('data-count', currentSlide + 1);
     });
     
@@ -29,7 +32,6 @@ $(function() {
         slidesToScroll: 1
     });
     
-    console.log(amount);
     
     $gallerySlider.slick({
         slidesToShow: 4,
@@ -252,13 +254,31 @@ $(function() {
             }, 350);
         $blr.addClass('bluring');
     });
-
+    
+    var $gsLinesHeight = $('.lines-bg').height();
+    var $gsLines = $('.lines-bg .gs-lines img').eq(0);
+    console.log($gsLinesHeight);
+    var $topPosLine = parseInt($gsLines.css('top'));
+    console.log($('footer').position().top);
+    
     $(window).scroll(function() {
         if($(this).scrollTop() >= 100) {
             $hdr.addClass('sticky');  
+            $('.popup-menu').addClass('sticky');
         } else {
-            $hdr.removeClass('sticky');   
+            $hdr.removeClass('sticky');
+            $('.popup-menu').removeClass('sticky');
         }
+        
+//        if($(this).scrollTop() < $gsLinesHeight) {
+//            $gsLines.animate({
+//                top: '+=35px'
+//            }, 200);   
+//        } else {
+//            
+//        }
+        
+        //console.log($(this).scrollTop());
     });
     
     var $languagesLinks = $('.languages__navigation .anchors ul li a'),
@@ -324,5 +344,4 @@ $(function() {
 //    });
     
 });
-    
-    
+  
