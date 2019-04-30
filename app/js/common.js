@@ -52,6 +52,14 @@ $(function() {
         arrows: true, 
         prevArrow: $('.gallery__arows li.prev a'),
         nextArrow: $('.gallery__arows li.next a')
+//        responsive: [
+//        {
+//          breakpoint: 1200,
+//          settings: {
+//            slidesToShow: 3
+//          }
+//        }
+//      ]
     })
     
     var $hamburgerIcon = $('.header .toggle-mnu a'),
