@@ -51,15 +51,21 @@ $(function() {
         slidesToShow: 4,
         arrows: true, 
         prevArrow: $('.gallery__arows li.prev a'),
-        nextArrow: $('.gallery__arows li.next a')
-//        responsive: [
-//        {
-//          breakpoint: 1200,
-//          settings: {
-//            slidesToShow: 3
-//          }
-//        }
-//      ]
+        nextArrow: $('.gallery__arows li.next a'),
+        responsive: [
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 3
+          }
+        },        
+        {
+          breakpoint: 576,
+          settings: {
+            slidesToShow: 2
+          }
+        }
+      ]
     })
     
     var $hamburgerIcon = $('.header .toggle-mnu a'),
@@ -281,11 +287,9 @@ $(function() {
     
     var $gsLinesHeight = $('.lines-bg').height();
     var $gsLines = $('.lines-bg .gs-lines img').eq(0);
-    console.log($gsLinesHeight);
     var $topPosLine = parseInt($gsLines.css('top'));
-    console.log($('footer').position().top);
     
-    $(window).scroll(function() {
+    $(window).scroll(function(e) {   
         if($(this).scrollTop() >= 100) {
             $hdr.addClass('sticky');  
             $('.popup-menu').addClass('sticky');
@@ -293,19 +297,7 @@ $(function() {
             $hdr.removeClass('sticky');
             $('.popup-menu').removeClass('sticky');
         }
-        
-//        if($(this).scrollTop() < $gsLinesHeight) {
-//            $gsLines.animate({
-//                top: '+=35px'
-//            }, 200);   
-//        } else {
-//            
-//        }
-        
-        //console.log($(this).scrollTop());
     });
-    
-//    console.log($('.lines-bg .gs-lines .col:first-child').width());
     
     var $languagesLinks = $('.languages__navigation .anchors ul li a'),
         $subServiceLinks = $('.attendance__navigation .anchors ul li a');
@@ -330,6 +322,7 @@ $(function() {
     $fbSocialBtn.click(function(e) {
         e.preventDefault();
         if(!$(this).hasClass('opened')) {
+            $('.feedback-socials ul').css('display', 'block');
             $(this).addClass('opened');
             $fbSocialLi.eq(0).delay(300).animate({
                 opacity: 1
@@ -350,7 +343,9 @@ $(function() {
             }, 'fast');
             $fbSocialLi.eq(2).delay(100).animate({
                 opacity: 0
-            }, 'fast');
+            }, 'fast', function() {
+                $('.feedback-socials ul').css('display', 'none'); 
+            });
         }
     });
     
@@ -363,22 +358,144 @@ $(function() {
     }
     
     
-    
-    
-    
-//    $(document).on('scroll', function (){
-//        $('.caption-bg').each(function(i, el) {
-//            var postion = $(el).offset().top,
-//                height = $(el).height(),
-//                scroll = $(document).scrollTop(),
-//                elem = $(el)
-//            if(scroll  > postion && scroll < (postion + height) ) {
-//                $('.caption-bg').eq(i).addClass('dots-fill');
-//            } else {
-//                $('.caption-bg').eq(i).removeClass('dots-fill');
-//            }   
-//        })
+//    $(window).scroll(function() {
+//       var $tp = $(this).scrollTop(),
+//           $homeService = $('.services .dots-caption').offset().top - $hdr.height() * 2,
+//           $homeArticles = $('.articles .dots-caption').offset().top - $hdr.height() * 2,
+//           $homeWorking = $('.working .dots-caption').offset().top - $hdr.height() * 2,
+//           $homeFeedback = $('.feedback .dots-caption').offset().top - $hdr.height() * 2,
+//           $homeClients = $('.clients .dots-caption').offset().top - $hdr.height() * 2;
+//        if($tp > $homeService) {
+//            $('#services .dots-caption').addClass('fill');
+//        } else {
+//            $('#services .dots-caption').removeClass('fill');
+//        }
+//        
+//        if($tp > $homeArticles) {
+//            $('.articles .dots-caption').addClass('fill');
+//        } else {
+//            $('.articles .dots-caption').removeClass('fill');
+//        }
+//        
+//        if($tp > $homeWorking) {
+//           $('.working .dots-caption').addClass('fill');
+//        } else {
+//           $('.working .dots-caption').removeClass('fill');
+//        }
+//                
+//        if($tp > $homeFeedback) {
+//           $('.feedback .dots-caption').addClass('fill');
+//        } else {
+//           $('.feedback .dots-caption').removeClass('fill');
+//        }        
+//        
+//        if($tp > $homeClients) {
+//           $('.clients .dots-caption').addClass('fill');
+//        } else {
+//           $('.clients .dots-caption').removeClass('fill');
+//        }
 //    });
     
+    
+    var $selectLanguageList = $('.modal-form.calculating .select-language ul li a');
+    $('.modal-form.calculating .select-language input').click(function(e) {
+        $(this).siblings('ul').slideToggle();
+        $(this).parent().toggleClass('open');
+    });
+    
+    $selectLanguageList.click(function(e) {
+        var valLi = $(this).text();
+        $(this).closest('ul').siblings('input').val(valLi);
+        $(this).closest('ul').slideUp().parent().removeClass('open');
+    });
+    
+    
+    $(window).on('scroll', function (){
+        $('.dots-caption').each(function(i, el) {
+            var $tp = $(window).scrollTop();
+            var postion = $(el).offset().top - $hdr.height() * 2;
+            if($tp > postion ) {
+                $('.dots-caption').eq(i).addClass('fill');
+            } else {
+                $('.dots-caption').eq(i).removeClass('fill');
+            }   
+        })
+    });
+    
 });
+
+
+    var CurrentScroll = 0;
+    var $gsLines = $('.lines-bg .gs-lines img');
+    $(window).on('scroll touchmove', function(event) {
+        var target = event.currentTarget,
+            scrollTop = target.scrollTop || window.pageYOffset,
+            scrollHeight = target.scrollHeight || document.body.scrollHeight;
+
+        var NextScroll = $(this).scrollTop();
+
+        if (NextScroll > CurrentScroll){
+            $gsLines.eq(0).animate({
+                 top: '+=40px'
+            }, 'fast');
+            
+            $gsLines.eq(1).animate({
+                 top: '+=40px'
+            }, 'fast')
+            
+            $gsLines.eq(2).animate({
+                 top: '+=40px'
+            }, 'fast');
+            
+            $gsLines.eq(3).animate({
+                 top: '+=40px'
+            }, 'fast');
+            
+            $gsLines.eq(4).animate({
+                 top: '+=40px'
+            }, 'fast');
+            
+            $gsLines.eq(5).animate({
+                 top: '+=40px'
+            }, 'fast');
+            
+            if(scrollHeight - scrollTop === $(target).innerHeight()) {
+                $gsLines.eq(5).animate({
+                     top: '-=40px'
+                }, 'fast'); 
+            }
+            
+        } else {
+            $gsLines.eq(0).animate({
+                 top: '-=40px'
+            }, 'fast');
+            
+            $gsLines.eq(1).animate({
+                 top: '-=40px'
+            }, 'fast')
+            
+            $gsLines.eq(2).animate({
+                 top: '-=40px'
+            }, 'fast');
+            
+            $gsLines.eq(3).animate({
+                 top: '-=40px'
+            }, 'fast');
+            
+            $gsLines.eq(4).animate({
+                 top: '-=40px'
+            }, 'fast');
+            
+            $gsLines.eq(5).animate({
+                 top: '-=40px'
+            }, 'fast');
+            
+            if($(this).scrollTop() < 2) {
+                $gsLines.animate({top: "250px"}, 'fast');
+            }
+        }
+
+        CurrentScroll = NextScroll; 
+        
+    });
   

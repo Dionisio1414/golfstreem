@@ -85,10 +85,14 @@ h4
 [aria-label="breadcrumb"]
     +custom-breadcrumbs
     
-.dots-fill
-    svg
-        g
-            fill: $subaccent
+.dots-caption
+    &.fill
+        .caption-bg
+            svg
+                g
+                    fill: $subaccent
+            
+            
     
 /* Modal forms */ 
 
@@ -102,7 +106,7 @@ h4
     padding: 100px 30px
     opacity: 0
     display: none
-    z-index: 35
+    z-index: 1000
     .modal-close
         position: absolute
         left: 30px
@@ -155,6 +159,32 @@ h4
         top: 50%
         left: 50%
         transform: translate(-50%, -50%)
+        .select-language
+            position: relative
+            input
+                cursor: pointer
+            &.open
+                img
+                    transform: rotate(-95deg)
+            ul
+                display: none
+                position: absolute
+                width: 100%
+                left: 0
+                top: 40px
+                padding: 15px
+                margin: 0
+                list-style-type: none
+                background-color: #fff
+                z-index: 25
+                li
+                    margin-bottom: 10px
+                    a
+                        font-family: $semibold
+                        font-size: 14px
+                        color: $caption
+                    &:last-child
+                        margin-bottom: 0
         .modal-top
             position: relative
             padding-left: 25px
@@ -499,6 +529,7 @@ h4
             letter-spacing: .35px
             color: $write-text
     .hidden-socials
+        display: none
         padding: 0
         margin: 0
         list-style-type: none
@@ -661,7 +692,7 @@ h4
         transform: translate(-50%)
         .row
             height: 100%
-            .col
+            > div
                 height: 100%
                 border-left: 1px solid rgba(#707070, .07)
                 border-right: 1px solid rgba(#707070, .07)
@@ -757,7 +788,7 @@ main
                 width: 11px
                 height: 11px
                 background-color: #fff
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16)
+                //box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16)
                 border-radius: 50%
                   //  box-shadow: 2px 0px 0px 3px $subaccent, -2px 0 0 3px $subaccent, -2px 0 0 3px $subaccent, 0px -2px 0 3px $subaccent, 0 2px 0 3px $subaccent
             //&:hover
@@ -780,10 +811,6 @@ main
         svg
             width: 100%
             height: 102px
-        &.active
-            svg
-                > g
-                    fill: $subaccent
     .services
         counter-reset: heading
         margin-top: 62px
@@ -868,6 +895,7 @@ main
                 line-height: 21px
                 color: $write-text
                 + a
+                    display: inline-block
                     font-size: 12px
     .working
         margin-bottom: 300px
@@ -1071,7 +1099,7 @@ main
             +custom-form
             margin-top: 13px
             .form-row
-                .col
+                div
                     &:first-child
                         div
                             margin-right: 15px
@@ -1689,16 +1717,16 @@ main
                     position: absolute
                     bottom: 0
                     left: 0
-                    width: 0%
+                    width: 0
                     height: 2px
                     background-color: $subaccent
                     transition: width .35s ease-in-out
                 &:hover
                     &::before
-                        width: 10%
+                        width: 31px
                 &.active
                     &::before
-                        width: 10%
+                        width: 31px
     &__tab-content
         margin-bottom: 77px
         .tab
@@ -1761,7 +1789,7 @@ main
             form
                 +custom-form
                 .form-row
-                    .col
+                    > div
                         &:first-child
                             div
                                 margin-right: 15px

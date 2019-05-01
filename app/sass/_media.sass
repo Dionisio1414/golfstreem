@@ -88,8 +88,43 @@
                     
     /* End blog page */
     
+    /* News page */
+    
+    .wave
+        &__caption
+            &.reset
+                h1
+                    font-size: 40px
+    
+    /* End news page */
+    
+    
+    /* Subservice page */
+    
+    .attendance
+        &__description 
+            .sub-description 
+                .row 
+                    .row-images
+                        .image
+                            &:first-child
+                                margin-right: 25px
+        &__translate 
+            .deadline-description
+                margin-top: 30px
+        &__tabs 
+            .tab 
+                a
+                    padding: 13px 15px 13px 15px
+    
+    /* End subservice page */
+    
     
 +media-breakpoint-down(md)
+    
+    .feedback-socials
+        right: 50px
+    
     /* HEADER */
     
     .header
@@ -151,6 +186,14 @@
         &__caption
             margin-bottom: 15px
     main
+        .services
+            .container
+                > div
+                    &:last-child
+                        div
+                            margin-bottom: 50px
+                            &:last-child
+                                margin-bottom: 0
         .custom-dots 
             .slick-dots
                 position: static
@@ -227,6 +270,94 @@
     
     /* End company page */
     
+    /* Company page */
+    
+    .company
+        &__tabs
+            background-position: 42% center!important
+    
+    .life-company
+        &__video
+            position: static
+            margin-top: 25px
+            iframe
+                width: 100%
+        .container 
+            .row
+                &:nth-child(2)
+                    margin-bottom: 25px
+                
+    .gallery 
+        margin-bottom: 25px
+        .image
+            margin-bottom: 18px    
+        &__arows
+            display: none
+    
+    /* End company page */
+    
+    
+    /* Prices page */
+    
+    .prices
+        .container
+            .row
+                > div
+                    &:first-child
+                        background-image: none!important
+                        margin-bottom: 50px
+            &:last-child 
+                .accordion
+                    &__item 
+                        p
+                            font-size: 18px
+        &__tab-content
+            .tab
+                .table-responsive
+                    border: none
+    
+    /* End prices page */
+    
+    /* News page */
+    
+    .wave
+        &__caption
+            &.reset 
+                h1
+                    font-size: 30px
+    
+    /* End news page */
+    
+    
+    /* Languages page */
+    
+    .adding-languages
+        .container
+            .row
+                &:last-child
+                    > div
+                        .row
+                            > div
+                                &:first-child
+                                    margin-bottom: 40px
+    .attendance
+        &__translate 
+            .deadline-description
+                margin-top: 50px
+    
+    /* End languages page */
+    
+    /* Subservice page */
+    
+    .attendance
+        .container
+            .row
+                > div
+                    &:last-child
+                        margin-bottom: 60px
+                    
+    /* End subservice */
+    
 +media-breakpoint-down(sm)
     /* HEADER */
     
@@ -283,14 +414,6 @@
         &__caption
             max-width: 500px
     main
-        .services
-            .container
-                > div
-                    &:last-child
-                        div
-                            margin-bottom: 50px
-                            &:last-child
-                                margin-bottom: 0
         .articles
             &__slider 
                 h3
@@ -370,7 +493,84 @@
     
     /* End error page */
     
+    /* Jobs page */
+    
+    .jobs
+        &__tabs 
+            ul
+                li
+                    display: inline-block
+                    margin-right: 30px
+                    &:last-child
+                        margin-right: 0
+    
+    /*  End jobs page */
+    
+    /* Prices page */
+    
+    .prices 
+        .container
+            &:last-child 
+                .accordion
+                    &__item 
+                        p
+                            font-size: 13px
+        .deadline-image
+            img
+                width: 100%
+    
+    /* End prices page */
+    
+    /* News page */
+    
+    .news 
+        .article
+            &.main
+                margin-top: 50px
+    
+    /* End news page */
+    
+    /* Languages page */
+    
+    .languages
+        &__description
+            margin-top: 50px
+    
+    /* End languages page */
+    
+    
+    /* Subservice page */
+    
+    .attendance
+        &__translate
+            .table-responsive
+                border: none
+            .deadline-description
+                margin-top: 0
+                
+    /* End subservice page */
+    
 +media-breakpoint-down(xs)
+    
+    .wave:not(.home)+main
+        margin-top: -150px
+        
+    .modal-form
+        &.orders
+            overflow-y: scroll
+            width: 100%
+    
+    
+    /* Wave caption */
+    
+    .wave
+        &__caption 
+            h1
+                font-size: 24px
+                line-height: 24px
+                margin-bottom: 15px
+    
+    /* End wave caption */
     
     /* HEADER */
     
@@ -404,6 +604,16 @@
     
     /* Homepage */
     
+    [data-button~=btn-arrow-text]
+        display: block
+        position: static
+        padding: 10px 11px 10px 13px
+        span
+            position: static
+            display: block
+            text-align: center
+            
+    
     .wave
         &__caption
             max-width: 270px
@@ -414,7 +624,89 @@
     main
         .custom-dots
             padding: 30px 0
-    
+            li 
+                .bg
+                    left: 22%
+        .clients 
+            .tab-brands.left, 
+            .tab-brands.right
+                margin-bottom: 10px
+                .tab-item
+                    width: 64px
+                    height: 65px
+                    padding: 0px 15px
+            .tab-content
+                padding: 25px
+        .services 
+            h2    
+                margin-top: 3.5rem
+                font-size: 24px
+            [data-button=btn-arrow-text]
+                margin-top: 4rem
+        .articles 
+            h2
+                margin-top: 3.5rem
+                font-size: 24px
+            .dots-caption
+                div
+                    &:nth-child(3)
+                        padding-right: 0
+                    &:nth-child(4)
+                         padding-left: 0
+            .articles-arrows
+                margin-top: 25px
+            [data-button=btn-arrow-text]
+                margin-top: 5rem
+            &__slider 
+                h3
+                    font-size: 20px
+                    padding-left: 15px
+                p
+                    max-height: 290px
+        .working 
+            margin-bottom: 100px
+            &__description
+                position: absolute
+                top: -338px
+                max-width: none
+                width: unset
+                p
+                    font-size: 14px
+                    line-height: 21px
+            h2
+                font-size: 24px
+            .right-bg
+                position: static
+                margin-top: 121px
+                height: 75%
+        .feedback 
+            h2
+                font-size: 24px
+            [data-button=btn-arrow-text]
+                padding-right: 15px
+                margin-top: 6rem
+            &__slider 
+                .user-description 
+                    p
+                        padding-left: 15px
+        .clients
+            h2
+                font-size: 24px
+        .relationship 
+            h2
+                font-size: 24px
+            &__description
+                margin-bottom: 15px
+            form 
+                .form-row 
+                    div
+                        &:first-child
+                            div
+                                margin-right: 0
+                        &:last-child 
+                            div
+                                margin-left: 0
+                
     /* End homepage */
     
     /* Footer */
@@ -461,6 +753,8 @@
     
     .error
         &__caption 
+            &::after
+                display: none
             h1
                 text-align: center
             p
@@ -469,6 +763,8 @@
             padding-top: 10px
             p
                 text-align: center
+                margin-left: auto
+                margin-right: auto
                 letter-spacing: .35px
             a
                 display: block
@@ -497,3 +793,195 @@
                 
     /* Contacts page */
     
+    /* Company page */
+    
+    .company
+        margin-bottom: 30px
+        &__tabs 
+            .tab-item
+                width: 130px
+                height: 130px
+                &:nth-child(1),
+                &:nth-child(3)
+                    margin-right: auto
+                &:nth-child(2),
+                &:nth-child(4)
+                    margin-right: 0
+                span
+                    font-size: 14px
+        &__tab-content 
+            .tab 
+                h2
+                    font-size: 24px
+                    width: unset
+                .description-service
+                    flex-direction: column
+                    align-items: center
+                    .item 
+                        p
+                            font-size: 18px
+                            &::before
+                                font-size: 38px
+                                left: -2px
+                                bottom: -16px
+                    
+        .gallery
+            &__slider
+               margin-top: 5px
+    
+    /* End company page */
+    
+    /* Jobs page */
+    
+    .jobs
+        &__tabs 
+            ul 
+                li
+                    margin-right: 31px
+                    a
+                        font-size: 12px
+        .caption-bg 
+            + div 
+                h2
+                    font-size: 20px
+        &__description 
+            .our-company
+                h2
+                    font-size: 20px
+                .description-service
+                    flex-direction: column
+                    align-items: center
+                    .item 
+                        p
+                            font-size: 18px
+                            &::before
+                                font-size: 38px
+                                left: -2px
+                                bottom: -16px
+            .resume-form 
+                form 
+                    .upload
+                        width: 100%
+                    .form-row 
+                        .message
+                            margin-top: 30px
+                            margin-right: 0!important
+                        &:first-child
+                            > div
+                                &:first-child
+                                    div
+                                        margin-bottom: 30px
+                                        margin-right: 0
+                                &:last-child
+                                    div
+                                        margin-left: 0
+    
+    /*  End jobs page */
+    
+    
+    /* Prices page */
+    
+    .prices
+        &__calculate 
+            a
+                padding-right: 15px
+        &__tabs 
+            ul
+                display: flex
+                flex-direction: column
+                align-items: center
+                li
+                    a
+                        font-size: 13px
+        h2
+            font-size: 24px
+        .container
+            &:last-child
+                padding-bottom: 30px
+                .accordion
+                    &__item
+                        a
+                            height: 47px
+                        p
+                            font-size: 14px
+                            margin-top: 25px
+                        .desc 
+                            p
+                                margin-left: 0
+                                margin-top: 0
+                .row
+                    &:first-child
+                        h2
+                            margin-top: .5rem
+                    &:nth-child(3)
+                        h2
+                            margin-top: 3rem
+        
+
+    /* End prices page */
+    
+    /* News page */
+    
+    .wave
+        &__caption
+            &.reset 
+                h1
+                    font-size: 24px
+                    line-height: 29px
+    
+    /* End news page */
+    
+    
+    /* Languages page */
+    
+    .adding-languages
+        &__description 
+            h2
+                font-size: 24px
+    .languages
+        &__description 
+            h2
+                font-size: 24px
+                
+    /* End languages page */
+    
+    /* Languages page */
+    
+    .attendance
+        &__description 
+            h2
+                font-size: 24px
+        &__translate 
+            h2
+                font-size: 24px
+                margin-top: 3.5rem
+                
+    
+    /* End languages page */
+    
+    
+    /* Subservice page */
+    
+    .attendance
+        &__description 
+            .sub-description 
+                .row 
+                    .row-images
+                        flex-direction: column
+                        .image
+                            &:first-child
+                                margin-right: 0
+                            img
+                                width: 100%
+        &__navigation 
+            ul 
+                li
+                    font-size: 13px
+    
+    /* End subservice page */
+    
+    
+    .feedback-socials
+        right: auto
+        left: 20px
+        bottom: 20px
