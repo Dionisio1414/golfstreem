@@ -413,7 +413,7 @@ $(function() {
     $(window).on('scroll', function (){
         $('.dots-caption').each(function(i, el) {
             var $tp = $(window).scrollTop();
-            var postion = $(el).offset().top - $hdr.height() * 2;
+            var postion = $(el).offset().top - $hdr.height() * 3;
             if($tp > postion ) {
                 $('.dots-caption').eq(i).addClass('fill');
             } else {
@@ -425,77 +425,77 @@ $(function() {
 });
 
 
-    var CurrentScroll = 0;
-    var $gsLines = $('.lines-bg .gs-lines img');
-    $(window).on('scroll touchmove', function(event) {
-        var target = event.currentTarget,
-            scrollTop = target.scrollTop || window.pageYOffset,
-            scrollHeight = target.scrollHeight || document.body.scrollHeight;
-
-        var NextScroll = $(this).scrollTop();
-
-        if (NextScroll > CurrentScroll){
-            $gsLines.eq(0).animate({
-                 top: '+=40px'
-            }, 'fast');
-            
-            $gsLines.eq(1).animate({
-                 top: '+=40px'
-            }, 'fast')
-            
-            $gsLines.eq(2).animate({
-                 top: '+=40px'
-            }, 'fast');
-            
-            $gsLines.eq(3).animate({
-                 top: '+=40px'
-            }, 'fast');
-            
-            $gsLines.eq(4).animate({
-                 top: '+=40px'
-            }, 'fast');
-            
-            $gsLines.eq(5).animate({
-                 top: '+=40px'
-            }, 'fast');
-            
-            if(scrollHeight - scrollTop === $(target).innerHeight()) {
-                $gsLines.eq(5).animate({
-                     top: '-=40px'
-                }, 'fast'); 
-            }
-            
-        } else {
-            $gsLines.eq(0).animate({
-                 top: '-=40px'
-            }, 'fast');
-            
-            $gsLines.eq(1).animate({
-                 top: '-=40px'
-            }, 'fast')
-            
-            $gsLines.eq(2).animate({
-                 top: '-=40px'
-            }, 'fast');
-            
-            $gsLines.eq(3).animate({
-                 top: '-=40px'
-            }, 'fast');
-            
-            $gsLines.eq(4).animate({
-                 top: '-=40px'
-            }, 'fast');
-            
-            $gsLines.eq(5).animate({
-                 top: '-=40px'
-            }, 'fast');
-            
-            if($(this).scrollTop() < 2) {
-                $gsLines.animate({top: "250px"}, 'fast');
-            }
-        }
-
-        CurrentScroll = NextScroll; 
-        
-    });
-  
+//    var CurrentScroll = 0;
+//    var $gsLines = $('.lines-bg .gs-lines img');
+//    $(window).on('scroll touchmove', function(event) {
+//        var target = event.currentTarget,
+//            scrollTop = target.scrollTop || window.pageYOffset,
+//            scrollHeight = target.scrollHeight || document.body.scrollHeight;
+//
+//        var NextScroll = $(this).scrollTop();
+//
+//        if (NextScroll > CurrentScroll){
+//            $gsLines.eq(0).animate({
+//                 top: '+=25px'
+//            }, 'fast');
+//            
+//            $gsLines.eq(1).animate({
+//                 top: '+=25px'
+//            }, 'fast')
+//            
+//            $gsLines.eq(2).animate({
+//                 top: '+=25px'
+//            }, 'fast');
+//            
+//            $gsLines.eq(3).animate({
+//                 top: '+=25px'
+//            }, 'fast');
+//            
+//            $gsLines.eq(4).animate({
+//                 top: '+=25px'
+//            }, 'fast');
+//            
+//            $gsLines.eq(5).animate({
+//                 top: '+=25px'
+//            }, 'fast');
+//            
+//            if(scrollHeight - scrollTop === $(target).innerHeight()) {
+//                $gsLines.eq(5).animate({
+//                     top: '-=25px'
+//                }, 'fast'); 
+//            }
+//            
+//        } else {
+//            $gsLines.eq(0).animate({
+//                 top: '-=25px'
+//            }, 'fast');
+//            
+//            $gsLines.eq(1).animate({
+//                 top: '-=25px'
+//            }, 'fast')
+//            
+//            $gsLines.eq(2).animate({
+//                 top: '-=25px'
+//            }, 'fast');
+//            
+//            $gsLines.eq(3).animate({
+//                 top: '-=25px'
+//            }, 'fast');
+//            
+//            $gsLines.eq(4).animate({
+//                 top: '-=25px'
+//            }, 'fast');
+//            
+//            $gsLines.eq(5).animate({
+//                 top: '-=25px'
+//            }, 'fast');
+//            
+//            if($(this).scrollTop() < 2) {
+//                $gsLines.animate({top: "250px"}, 'fast');
+//            }
+//        }
+//
+//        CurrentScroll = NextScroll; 
+//        
+//    });
+//  
