@@ -159,6 +159,11 @@ h4
         top: 50%
         left: 50%
         transform: translate(-50%, -50%)
+        .modal-bottom
+            form
+                .send
+                    margin-right: 90px
+                    margin-top: 60px
         .select-language
             position: relative
             input
@@ -199,9 +204,9 @@ h4
                 width: 2px
                 background-color: $caption
         .modal-close
-            top: auto
-            left: 50px
-            bottom: 45px
+            top: 25px
+            right: 25px
+            left: auto
         .modal-bottom
             .form-row
                 &:nth-child(1),
@@ -741,6 +746,7 @@ h4
 
 main
     .tab 
+        margin: 0 2px
         &.personal-client,
         &.business
             position: relative
@@ -758,7 +764,7 @@ main
                 top: 7px
                 opacity: 0
             &:hover
-                box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08)
+                box-shadow: 0 3px 12px rgba(0, 0, 0, 0.17)
                 a
                     opacity: 1
     .custom-dots
@@ -1005,24 +1011,17 @@ main
                 box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16)
                 width: 12px
                 height: 12px
+                outline: 0
         .ui-widget-header
             background-color: $accent
     .clients
         padding-bottom: 62px
         .tab-brands
-            display: -webkit-flex
-            display: -moz-flex
-            display: -ms-flex
-            display: -o-flex
             display: flex
             flex-wrap: wrap
             justify-content: space-between
             align-items: center
             .tab-item
-                display: -webkit-flex
-                display: -moz-flex
-                display: -ms-flex
-                display: -o-flex
                 display: flex
                 align-items: center
                 width: 160px
@@ -1037,11 +1036,11 @@ main
                 &:nth-child(2)
                     margin-bottom: 30px
                 &:hover
-                    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.09)
+                    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.17)
                 &.active
-                    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.09)
+                    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.17)
         .tab-content
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.09)
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.17)
             padding: 48px
             height: 100%
             margin-left: 1px
@@ -1394,6 +1393,9 @@ main
             margin-bottom: 56px
             span
                 img
+                    top: 4px
+                    width: 16px
+                    height: 16px
                     transform: rotate(180deg)        
         .anchors
             +anchors
@@ -1521,6 +1523,9 @@ main
         .order-service
             margin: 50px 0
             img
+                top: 4px
+                width: 16px
+                height: 16px
                 transform: rotate(180deg)
         .anchors
             +anchors
@@ -1760,7 +1765,7 @@ main
                         content: ""
                         position: absolute
                         top: 3px
-                        left: -32px
+                        left: -34px
                         background-color: #fff
                         border-radius: 50%
                         width: 11px
@@ -1806,8 +1811,11 @@ main
                         &::after
                             bottom: 8px
                     .send
-                        margin-right: 43px
-                        margin-top: 50px
+                        margin-right: 100px
+                        margin-top: 60px
+                        &::before,
+                        &::after
+                            display: none
                     .upload
                         margin-top: 45px
         .our-company

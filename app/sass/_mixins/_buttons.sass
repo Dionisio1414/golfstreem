@@ -12,13 +12,22 @@
         left: 19px
         background-color: #fff
         white-space: nowrap
+        b
+            position: relative
+            left: 0
+            transition: all .5s ease-in-out
         img
-            margin-left: 5px
+            position: absolute
+            top: 5px
+            right: -20px
+            transition: all .15s ease-in-out
     &:hover
         color: $subaccent
         span    
+            b
+                left: -5px  
             img
-                margin-left: 15px
+                right: -22px
     
 @mixin btn-arrow
     position: relative
@@ -34,14 +43,14 @@
         left: 11px
         background-color: #fff
         padding-right: 15px
+        transition: all .35s ease
         img
             width: 20px
             height: 20px
             transform: rotate(180deg)
     &:hover
         span    
-            img
-                margin-left: 10px
+            left: 20px
             
 @mixin btn-simple
     

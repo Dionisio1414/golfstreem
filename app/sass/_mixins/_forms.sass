@@ -65,20 +65,26 @@
             white-space: nowrap
             pointer-events: none
             color: $subaccent
+            b
+                position: relative
+                left: 0
+                transition: all .15s ease-in-out
             img
-                margin-left: 5px
+                position: absolute
+                top: 5px
+                right: -20px
+                transition: all .15s ease-in-out
         &:hover
+            b
+                left: -5px
             span
                 img
-                    margin-left: 15px
+                    right: -22px
         &.submit
             input
                 height: 55px
             span
-                white-space: normal
-                max-width: 83px
-                text-align: right
-                line-height: 18px
+                top: 16px
                 img
                     position: absolute
                     top: 50%

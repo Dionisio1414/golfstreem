@@ -7,6 +7,8 @@ $(function() {
         $fbSlider = $('.feedback__slider'),
         $gallerySlider = $('.gallery__slider');
     $homeTopSlider.slick({
+        autoplay: true,
+        speed: 1000,
         dots: true,
         customPaging: function(slide, index) {
             return `<div class="bg"></div>`;
@@ -22,10 +24,7 @@ $(function() {
     $fbSlider.on('init', function(event, slick) {
         amount = slick.slideCount;
     });
-    
-    $fbSlider.on('afterChange', function(e, slick, currentSlide, nextSlide) {
-        $rangeSlider.attr('data-count', currentSlide + 1);
-    });
+
     
     $fbSlider.slick({
         slidesToShow: 3,
@@ -79,14 +78,14 @@ $(function() {
             $popupMenu.show().animate({
                 opacity: 1,
                 top: 95 + "px"
-            }, 600);
+            }, 250);
         } else {
             $(this).removeClass('open');
             $blr.removeClass('bluring');
             $popupMenu.animate({
                 opacity: 0,
                 top: 0 + "px"
-            }, 600, function() {
+            }, 250, function() {
                 $(this).hide();
             });
         }
@@ -175,11 +174,16 @@ $(function() {
     $('.feedback .range-slider').slider({
         range: "min",
         min: 0,
-        max: amount, 
+        max: amount - 1, 
         slide: function(e, ui) {
             $fbSlider.slick('slickGoTo', ui.value);
+            $fbSlider.on('afterChange', function(e, slick, currentSlide, nextSlide) {
+                $rangeSlider.attr('data-count', currentSlide);
+            });
         }
     });
+    
+    console.log(amount);
     
     var $tabContent = $('main .clients .tab-content');
     $('main .clients .tab-brands.left .tab-item').click(function() {
@@ -413,7 +417,7 @@ $(function() {
     $(window).on('scroll', function (){
         $('.dots-caption').each(function(i, el) {
             var $tp = $(window).scrollTop();
-            var postion = $(el).offset().top - $hdr.height() * 3;
+            var postion = $(el).offset().top - $hdr.height() * 5.5;
             if($tp > postion ) {
                 $('.dots-caption').eq(i).addClass('fill');
             } else {
