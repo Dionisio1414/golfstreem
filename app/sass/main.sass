@@ -152,6 +152,43 @@ h4
                     &::before,
                     &::after
                         bottom: 8px
+    &.call
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        width: 730px
+        height: 355px
+        padding-top: 40px
+        padding-bottom: 40px
+        .modal-top
+            position: relative
+            margin-top: 0
+            padding-left: 25px
+            h2
+                max-width: none
+                text-transform: unset
+            &::before
+                content: ""
+                position: absolute
+                top: 0
+                left: 0
+                height: 100%
+                width: 2px
+                background-color: $caption
+        .modal-close
+            left: auto
+            right: 20px
+            top: 20px
+        .modal-bottom
+            margin-bottom: 40px
+            form
+                .form-row
+                    &:first-child
+                        > div
+                            &:first-child
+                                margin-right: 15px
+                            &:last-child
+                                margin-left: 15px
     &.calculating
         width: 730px
         height: 591px
@@ -190,6 +227,24 @@ h4
                         color: $caption
                     &:last-child
                         margin-bottom: 0
+            span
+                position: relative
+                width: 100%
+                select
+                    font-family: $default-font
+                    -webkit-appearance: none
+                    -moz-appearance: none
+                    text-indent: 1px
+                    background-color: transparent
+                    width: 100%
+                    border: none
+                    border-bottom: 1px solid $subaccent
+                    padding: 0 20px 16px 20px
+                    font-size: 14px
+                    letter-spacing: .35px
+                    outline: 0
+                    color: #474747
+                    cursor: pointer
         .modal-top
             position: relative
             padding-left: 25px
@@ -216,7 +271,7 @@ h4
                         &:first-child
                             margin-right: 15px
                         &:last-child
-                            margin-left: 15px
+                           //margin-left: 15px
                 .send
                     margin-top: 60px
                 .message
@@ -794,12 +849,35 @@ main
                 width: 11px
                 height: 11px
                 background-color: #fff
-                //box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16)
                 border-radius: 50%
-                  //  box-shadow: 2px 0px 0px 3px $subaccent, -2px 0 0 3px $subaccent, -2px 0 0 3px $subaccent, 0px -2px 0 3px $subaccent, 0 2px 0 3px $subaccent
-            //&:hover
-                .bg
-                    animation: border .4s ease 1 forwards
+                //&::before
+                    content: ""
+                    animation: upper 2s linear infinite
+                    border: solid .125em
+                    border-bottom-color: $subaccent
+                    border-left-color: $subaccent
+                    border-right-color: transparent
+                    border-top-color: transparent
+                    border-radius: 50%
+                    height: .75em
+                    left: 0
+                    position: absolute
+                    top: 0
+                    transform: rotate(45deg)
+                    width: .75em
+                    z-index: 1
+                //&::after
+                    content: ""
+                    animation: lower 2s linear infinite
+                    border: solid .125em #fff
+                    border-radius: 50%
+                    height: .75em
+                    left: 0
+                    top: 0
+                    position: absolute
+                    transform: rotate(45deg)
+                    width: .75em
+                    z-index: 0
     section
         h2
             position: relative
@@ -1168,14 +1246,26 @@ main
                         a
                             color: #0294c1
                     &:first-child
-                        transform: rotateY(-180deg)
                         float: left
                         a
                             border-color: #d5d5d5
+                            svg
+                                transform: rotateY(360deg)
                     &:last-child
                         margin-right: 0
                         float: right
-    
+                        a
+                            svg
+                                transform: rotateY(185deg)
+                    &:first-child,
+                    &:last-child
+                        &.active
+                            a
+                                border-color: $accent
+                                svg
+                                    g
+                                        use
+                                            stroke: $accent
 
 /* End blog page */
 
@@ -1867,7 +1957,6 @@ main
 /* Company page */
 
 .nicescroll-cursors
-    height: 42px !important
     float: none!important
     border: none!important
 

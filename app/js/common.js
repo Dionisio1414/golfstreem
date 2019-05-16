@@ -183,8 +183,6 @@ $(function() {
         }
     });
     
-    console.log(amount);
-    
     var $tabContent = $('main .clients .tab-content');
     $('main .clients .tab-brands.left .tab-item').click(function() {
         $('main .clients .tab-brands.right .tab-item').removeClass('active');
@@ -214,7 +212,6 @@ $(function() {
         $(this).parent().addClass('active').siblings().removeClass('active');
         $tabContents.removeClass('active').eq($(this).parent().index()).addClass('active');
     });
-    
     
     var $accordionItem = $('.prices .container:last-child .accordion__item');
     $accordionItem.click(function(e) {
@@ -274,6 +271,27 @@ $(function() {
                 $(this).css('display', 'none');
             });
         $blr.removeClass('bluring');
+    });
+    
+    $('.feedback-socials .hidden-socials li:first-child a').click(function(e) {
+        e.preventDefault();
+    });
+    
+    $('.feedback-socials .hidden-socials li:first-child').click(function(e) {
+        $('.modal-form.call')
+            .css('display', 'block')
+            .animate({
+                opacity: 1
+            }, 350);
+        $blr.addClass('bluring');
+    });
+    
+    $('.modal-form.call .modal-close').click(function() {
+        $(this).parent().animate({
+            opacity: 0
+        }, 250, function() {
+           $(this).css('display', 'none'); 
+        });
     });
     
     var $calculatePriceBtn = $('.prices__calculate a');
@@ -402,9 +420,8 @@ $(function() {
     
     
     var $selectLanguageList = $('.modal-form.calculating .select-language ul li a');
-    $('.modal-form.calculating .select-language input').click(function(e) {
-        $(this).siblings('ul').slideToggle();
-        $(this).parent().toggleClass('open');
+    $('.modal-form.calculating .select-language span select').click(function(e) {
+        $(this).parent().parent().toggleClass('open');
     });
     
     $selectLanguageList.click(function(e) {
