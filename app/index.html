@@ -70,13 +70,37 @@
                     </div>
                 </div>                
                 <div class="form-row">
+<!--
                     <div class="col-6">
-                        <input type="radio" name="client-business" id="client">
+                        <input type="radio" name="client-business">
                         <label for="client">Частный клиент</label>
                     </div>
                     <div class="col-6">
-                        <input type="radio" name="client-business" id="business">
+                        <input type="radio" name="client-business">
                         <label for="business">Бизнес</label>
+                    </div>
+-->
+                    <div class="col d-flex justify-content-around">
+                        <div class="col-radio">
+                            <span class="wpcf7-form-control-wrap">
+                                <span class="wwpcf7-form-control wpcf7-radio">
+                                    <span class="wpcf7-list-item">
+                                        <input type="radio" name="client-business">
+                                    </span>
+                                </span>
+                            </span>
+                            <label for="client">Частный клиент</label>
+                        </div>
+                        <div class="col-radio">
+                            <span class="wpcf7-form-control-wrap">
+                                <span class="wwpcf7-form-control wpcf7-radio">
+                                    <span class="wpcf7-list-item">
+                                       <input type="radio" name="client-business" id="business">     
+                                    </span>
+                                </span>
+                            </span>
+                            <label for="business">Бизнес</label>
+                        </div>
                     </div>
                 </div>
                 <div class="form-row d-flex justify-content-end">
@@ -123,6 +147,73 @@
                                 </span>
                         </div>
                     </div>
+            </form>
+        </div>
+    </div>
+    
+    <div class="modal-form review">
+        <p class="modal-close">
+            <img src="img/icons/arrow-left.svg" alt="">
+            <span>Закрыть</span>
+        </p>
+        <div class="modal-top">
+            <h2>Отзыв</h2>
+            <p>Опишите свои впечатления от работы с нашей компанией. Отзыв станет доступным для пользователей после прохождения модерации.</p>
+        </div>
+        <div class="modal-bottom">
+            <form>
+                <div class="form-row">
+                    <div class="col-12 col-sm col-md col-lg col-xl">
+                        <div>
+                            <input type="text" name="namesurname" placeholder="Ваше имя и фамилия">
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm col-md col-lg col-xl">
+                        <div>
+                            <input type="text" name="city" placeholder="Город">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-12 col-sm col-md col-lg col-xl">
+                        <input type="text" name="feedback" placeholder="Отзыв">
+                    </div>
+                    <div class="col-12 col-sm col-md col-lg col-xl">
+                        <div class="rating">
+                            <span>Оценка:</span>
+                            <ul>
+                                <li class="star selected"><i class="fa fa-star-o" data-value="1"></i></li>
+                                <li class="star selected"><i class="fa fa-star-o" data-value="2"></i></li>
+                                <li class="star"><i class="fa fa-star-o" data-value="3"></i></li>
+                                <li class="star"><i class="fa fa-star-o" data-value="4"></i></li>
+                                <li class="star"><i class="fa fa-star-o" data-value="5"></i></li>
+                            </ul>
+                            <input type="hidden" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-12 col-sm col-md col-lg col-xl">
+                        <div class="upload">
+                            <label for="files">
+                                <img src="img/icons/download.svg" alt="">
+                                <span>
+                                    Добавить файлы 
+                                </span>
+                            </label>
+                            <input type="file" id="files">
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm col-md col-lg col-xl d-flex justify-content-end">
+                        <div class="send submit">
+                           <input type="submit" value="">
+                           <span>
+                               <b>Отправить</b>
+                               <img src="img/icons/arrow-right.svg" alt=""> 
+                           </span>
+                       </div>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
@@ -356,17 +447,26 @@
                 </div>
                 <div class="row mt-5">
                     <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                        <h3>Письменный перевод</h3>
+                        <h3>
+                            <div class="counter">01</div>
+                            <span>Письменный перевод</span>
+                        </h3>
                         <p>Vitae congue eu consequat ac felis donec et odio pellentesque. Ac odio tempor orci dapibus ultrices in. At ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget. Dignissim convallis aenean et tortor at risus viverra adipiscing.</p>
                         <a href="#" data-button="link-simple">Подробнее</a>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                        <h3>Устный перевод</h3>
+                        <h3>
+                            <div class="counter">02</div>
+                            <span>Устный перевод</span>
+                        </h3>
                         <p>Vitae congue eu consequat ac felis donec et odio pellentesque. Ac odio tempor orci dapibus ultrices in. At ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget. Dignissim convallis aenean et tortor at risus viverra adipiscing.</p>
                         <a href="#" data-button="link-simple">Подробнее</a>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                        <h3>Легализация</h3>
+                        <h3>
+                            <div class="counter">03</div>
+                            <span>Легализация</span>
+                        </h3>
                         <p>Vitae congue eu consequat ac felis donec et odio pellentesque. Ac odio tempor orci dapibus ultrices in. At ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget. Dignissim convallis aenean et tortor at risus viverra adipiscing.</p>
                         <a href="#" data-button="link-simple">Подробнее</a>
                     </div>
@@ -844,32 +944,18 @@
         </div>
     </footer>
     
-    
-    
+    </div>
     <div class="lines-bg">
        <div class="gs-lines container">
            <div class="row">
-               <div class="col">
-                   <img src="img/col-line.png" alt="">
-                   <img src="img/col-line.png" alt="">
-               </div>
-               <div class="col d-none d-lg-block">
-                   <img src="img/col-line.png" alt="">
-                   <img src="img/col-line.png" alt="">                   
-               </div>
-               <div class="col d-none d-lg-block">
-                   <img src="img/col-line.png" alt="">
-                   <img src="img/col-line.png" alt="">                   
-               </div>
+                <div class="col">
+                </div>
+                <div class="col d-none d-lg-block">
+                </div>
+                <div class="col d-none d-lg-block">
+                 </div>
            </div>
-<!--
-           <div class="gs-lines__outer"></div>
-           <div class="gs-lines__inner center"></div>
-           <div class="gs-lines__inner left"></div>
-           <div class="gs-lines__inner right"></div>
--->
        </div>
-    </div>
     </div>
     
         <!-- Feedback buttons -->

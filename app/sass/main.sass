@@ -152,6 +152,82 @@ h4
                     &::before,
                     &::after
                         bottom: 8px
+    &.review
+        width: 730px
+        height: 520px
+        padding: 43px 49px
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        .modal-close
+            left: auto
+            right: 20px
+            top: 20px
+        .modal-top
+            position: relative
+            margin-top: 0
+            padding-left: 25px
+            h2
+                text-transform: unset
+            &::before
+                content: ""
+                position: absolute
+                top: 0
+                left: 0
+                height: 100%
+                width: 2px
+                background-color: $caption
+        .modal-bottom
+            margin-top: 40px
+            form
+                .form-row
+                    &:first-child
+                        > div
+                            margin-bottom: 40px
+                            &:first-child
+                                margin-right: 15px
+                            &:last-child
+                                margin-left: 15px
+                    &:nth-child(2)
+                        margin-bottom: 20px
+                        > div
+                            &:first-child
+                                margin-right: 15px
+                            &:last-child
+                                margin-left: 15px                   
+                    &:nth-child(3)
+                        margin-bottom: 20px
+                        > div
+                            &:first-child
+                                margin-right: 15px
+                            &:last-child
+                                margin-left: 15px
+                .rating
+                    display: flex
+                    justify-content: flex-start
+                    padding: 0 20px 13px 20px
+                    border-bottom: 1px solid #EBEBEB
+                    span
+                        font-size: 14px
+                        letter-spacing: .49px
+                        margin-right: 33px
+                        color: #474747
+                    ul
+                        padding: 0
+                        margin: 0
+                        list-style-type: none
+                        li
+                            display: inline-block
+                            margin-right: 6px
+                            &:last-child
+                                margin-right: 0
+                            i
+                                color: $subaccent
+                            &.selected
+                                i
+                                    &::before
+                                        content: "\f005"
+                
     &.call
         top: 50%
         left: 50%
@@ -203,6 +279,10 @@ h4
                     margin-top: 60px
         .select-language
             position: relative
+            &:first-child
+                margin-right: 15px
+            &:last-child
+                margin-left: 15px
             input
                 cursor: pointer
             &.open
@@ -300,6 +380,7 @@ h4
 /* Header */
 
 .header
+    background-color: #fff
     padding: 24px 0 12px 0
     border-bottom: 1px solid rgba(#707070, .25)
     &.sticky
@@ -594,7 +675,6 @@ h4
         margin: 0
         list-style-type: none
         margin-bottom: 39px
-        display: flex
         flex-direction: column
         margin-bottom: 25px
         li
@@ -736,64 +816,105 @@ h4
 
 /* bg lines */
 
+//.fix
+//    text-align: center
+//    position: fixed
+//    top: 0
+//    width: 100%
+//    height: 100%
+//    display: -webkit-flex
+//    display: -moz-flex
+//    display: -ms-flex
+//    display: -o-flex
+//    display: flex
+//    justify-content: center
+//    align-items: center
+//    .container
+//        margin: auto
+//        width: 100%
+//        position: absolute
+//        top: 0
+//        bottom: 0
+//        right: 0
+//        left: 0
+//        .wrapper
+//            display: flex
+//            margin: 0 -15px
+//            height: 100vh
+//            margin: auto
+//            width: 100%
+//            position: absolute
+//            top: 0
+//            left: 0
+//            right: 0
+//            bottom: 0
+//            .column
+//                position: relative
+//                padding: 0 15px
+//                flex: 0 0 33.3%
+//                max-width: 33.3%
+//                background-clip: padding-box
+//                &::before
+//                    content: ""
+//                    position: absolute
+//                    top: 0
+//                    bottom: 0
+//                    width: 1px
+//                    margin: auto
+//                    background: linear-gradient(to bottom, #fff 20%, #C4E1EB 50%, #fff 70%)
+            
+
+
 .lines-bg
-    position: absolute
-    left: 0
+    text-align: left
+    position: fixed
     top: 0
     width: 100%
     height: 100%
+    display: flex
+    justify-content: center
+    align-items: center
     pointer-events: none
     z-index: -1
     .gs-lines
         position: absolute
-        left: 50%
         top: 0
-        height: 100%
-        transform: translate(-50%)
+        left: 0
+        right: 0
+        bottom: 0
+        width: 100%
+        margin: auto
         .row
-            height: 100%
+            position: absolute
+            top: 0
+            left: 0
+            bottom: 0
+            right: 0
+            margin: auto
             > div
-                height: 100%
                 border-left: 1px solid rgba(#707070, .07)
                 border-right: 1px solid rgba(#707070, .07)
-                padding: 0
                 margin-left: 15px
                 margin-right: 15px
-                img
-                    &:first-child
-                        position: absolute
-                        top: 250px
-                        left: 0
-                    &:last-child
-                        position: absolute
-                        top: 250px
-                        right: 0
-                
-//        &__outer
-//            position: absolute
-//            top: 0
-//            width: 97.4%
-//            height: 100%
-//            border-left: 1px solid rgba(#707070, .07)
-//            border-right: 1px solid rgba(#707070, .07)
-//            margin: 0 auto
-//        &__inner
-//            position: absolute
-//            height: 100%
-//            top: 0
-//            left: 0
-//            width: 350px
-//        &__inner.center
-//            left: 50%
-//            transform: translate(-50%)
-//            border-left: 1px solid rgba(#707070, .07)
-//            border-right: 1px solid rgba(#707070, .07)
-//        &__inner.left
-//            border-right: 1px solid rgba(#707070, .07)
-//        &__inner.right
-//            border-left: 1px solid rgba(#707070, .07)
-//            left: auto
-//            right: 0
+                background-clip: padding-box
+                &::before
+                    content: ""
+                    position: absolute
+                    top: 0
+                    bottom: 0
+                    left: 0
+                    width: 1px
+                    margin: auto
+                    background: linear-gradient(to bottom, #fff 20%, #C4E1EB 50%, #fff 70%)
+                &::after
+                    content: ""
+                    position: absolute
+                    top: 0
+                    bottom: 0
+                    right: 0
+                    width: 2px
+                    margin: auto
+                    background: linear-gradient(to bottom, #fff 20%, #C4E1EB 50%, #fff 70%)
 
 /* End bg lines */
 
@@ -852,8 +973,7 @@ main
                 border-radius: 50%
                 //&::before
                     content: ""
-                    animation: upper 2s linear infinite
-                    border: solid .125em
+                    border: solid .3em
                     border-bottom-color: $subaccent
                     border-left-color: $subaccent
                     border-right-color: transparent
@@ -866,10 +986,10 @@ main
                     transform: rotate(45deg)
                     width: .75em
                     z-index: 1
+                    animation: upper 2s linear infinite
                 //&::after
                     content: ""
-                    animation: lower 2s linear infinite
-                    border: solid .125em #fff
+                    border: solid .3em #fff
                     border-radius: 50%
                     height: .75em
                     left: 0
@@ -878,6 +998,7 @@ main
                     transform: rotate(45deg)
                     width: .75em
                     z-index: 0
+                    animation: lower 2s linear infinite
     section
         h2
             position: relative
@@ -907,12 +1028,18 @@ main
             top: 38px
         h3
             position: relative
-            padding-left: 31px
             margin-bottom: 26px
-            &::before
-                position: absolute
-                bottom: -22px
-                left: -2px
+            display: flex
+            align-items: center
+            .counter
+                font-family: "Montserrat Bold", sans-serif
+                font-size: 64px
+                opacity: .11
+                color: $subaccent
+            span
+                margin-left: -40px
+                max-width: 307px
+            //&::before
                 counter-increment: heading
                 content: "0" counter(heading)""
                 font-family: "Montserrat Bold", sans-serif
@@ -1039,6 +1166,7 @@ main
                         -webkit-user-select: none
                         > li.star 
                             display: inline-block
+                            font-family: FontAwesome
                             i.fa 
                                 font-size: 11px
                                 color: $accent
@@ -1495,19 +1623,16 @@ main
             > div
                 margin-bottom: 55px
         h3
-            position: relative
-            padding-left: 31px
-            margin-bottom: 26px
-            &::before
-                position: absolute
-                bottom: -22px
-                left: -2px
-                counter-increment: lang
-                content: "0" counter(lang) ""
+            display: flex
+            align-items: center
+            .counter
                 font-family: "Montserrat Bold", sans-serif
                 font-size: 64px
                 opacity: .11
                 color: $subaccent
+            span
+                margin-left: -40px
+                max-width: 307px
         p
             font-size: 14px
             letter-spacing: .35px
@@ -1579,7 +1704,7 @@ main
             &.active
                 display: block
     &__item
-        counter-reset: service
+        //counter-reset: service
         +service-block(service)
     &__description
         margin-bottom: 42px
@@ -1826,6 +1951,7 @@ main
                         width: 31px
     &__tab-content
         margin-bottom: 77px
+        background-color: #fff
         .tab
             padding-left: 30px
             display: none
@@ -1885,6 +2011,7 @@ main
             margin-bottom: 0
     &__description
         margin-top: 65px
+        background-color: #fff
         .resume-form
             form
                 +custom-form
