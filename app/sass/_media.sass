@@ -50,7 +50,7 @@
         .services 
             h3
                 font-size: 20px
-                padding-left: 25px
+                padding-left: 0
                 &::before
                     font-size: 55px
         .clients 
@@ -63,6 +63,12 @@
                 .description
                     font-size: 13px
                     margin-bottom: 40px
+        .feedback
+            &__slider 
+                .user-info
+                    margin-bottom: 20px
+                    .city
+                        margin-bottom: 0
     
     /* End homepage */
     
@@ -118,7 +124,6 @@
                     padding: 13px 15px 13px 15px
     
     /* End subservice page */
-    
     
 +media-breakpoint-down(md)
     
@@ -369,6 +374,16 @@
                     
     /* End subservice */
     
+    
+    .jobs
+        &__description 
+            .resume-form 
+                form 
+                    .form-row 
+                        .upload
+                            + div
+                                margin-top: 20px!important
+        
 +media-breakpoint-down(sm)
     
     .modal-form.review

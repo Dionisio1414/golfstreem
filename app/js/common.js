@@ -461,45 +461,6 @@ $(function() {
     }
     
     
-//    $(window).scroll(function() {
-//       var $tp = $(this).scrollTop(),
-//           $homeService = $('.services .dots-caption').offset().top - $hdr.height() * 2,
-//           $homeArticles = $('.articles .dots-caption').offset().top - $hdr.height() * 2,
-//           $homeWorking = $('.working .dots-caption').offset().top - $hdr.height() * 2,
-//           $homeFeedback = $('.feedback .dots-caption').offset().top - $hdr.height() * 2,
-//           $homeClients = $('.clients .dots-caption').offset().top - $hdr.height() * 2;
-//        if($tp > $homeService) {
-//            $('#services .dots-caption').addClass('fill');
-//        } else {
-//            $('#services .dots-caption').removeClass('fill');
-//        }
-//        
-//        if($tp > $homeArticles) {
-//            $('.articles .dots-caption').addClass('fill');
-//        } else {
-//            $('.articles .dots-caption').removeClass('fill');
-//        }
-//        
-//        if($tp > $homeWorking) {
-//           $('.working .dots-caption').addClass('fill');
-//        } else {
-//           $('.working .dots-caption').removeClass('fill');
-//        }
-//                
-//        if($tp > $homeFeedback) {
-//           $('.feedback .dots-caption').addClass('fill');
-//        } else {
-//           $('.feedback .dots-caption').removeClass('fill');
-//        }        
-//        
-//        if($tp > $homeClients) {
-//           $('.clients .dots-caption').addClass('fill');
-//        } else {
-//           $('.clients .dots-caption').removeClass('fill');
-//        }
-//    });
-    
-    
     var $selectLanguageList = $('.modal-form.calculating .select-language ul li a');
     $('.modal-form.calculating .select-language span select').click(function(e) {
         $(this).parent().parent().toggleClass('open');
@@ -512,7 +473,7 @@ $(function() {
     });
     
     
-    $(window).on('scroll', function (){
+    $(window).on('scroll', function () {
         $('.dots-caption').each(function(i, el) {
             var $tp = $(window).scrollTop();
             var postion = $(el).offset().top - $hdr.height() * 5.5;
@@ -524,80 +485,32 @@ $(function() {
         })
     });
     
+    
+    var $listFiles = $('.jobs__description .resume-form form .form-row .upload+div');
 });
 
+var testInput = document.querySelector('.jobs__description .resume-form .upload #files');
+var testArr = [], url = 'img/icons/file.svg';
+testInput.addEventListener('change', function(e) {
+    testArr = [];
+    var row, fileName, icon;
+    var img = document.createElement('img');
+    img.setAttribute('src', url);
+    for(var i = 0; i < testInput.files.length; i++) {
+        row = document.createElement('div');
+        row.classList.add('file-row');
+        icon = document.createElement('div');
+        icon.appendChild(img);
+        icon.classList.add('icon');
+        fileName = document.createElement('div');
+        fileName.classList.add('filename');
+        testArr.push(testInput.files[i]);
+        for(var item in testArr) {
+            fileName.innerHTML = testArr[item]['name'];
+            row.appendChild(icon);
+            row.appendChild(fileName);
+            document.querySelector('.jobs__description .resume-form form .form-row .upload+div').appendChild(row);
+        }
+    }
+});
 
-//    var CurrentScroll = 0;
-//    var $gsLines = $('.lines-bg .gs-lines img');
-//    $(window).on('scroll touchmove', function(event) {
-//        var target = event.currentTarget,
-//            scrollTop = target.scrollTop || window.pageYOffset,
-//            scrollHeight = target.scrollHeight || document.body.scrollHeight;
-//
-//        var NextScroll = $(this).scrollTop();
-//
-//        if (NextScroll > CurrentScroll){
-//            $gsLines.eq(0).animate({
-//                 top: '+=25px'
-//            }, 'fast');
-//            
-//            $gsLines.eq(1).animate({
-//                 top: '+=25px'
-//            }, 'fast')
-//            
-//            $gsLines.eq(2).animate({
-//                 top: '+=25px'
-//            }, 'fast');
-//            
-//            $gsLines.eq(3).animate({
-//                 top: '+=25px'
-//            }, 'fast');
-//            
-//            $gsLines.eq(4).animate({
-//                 top: '+=25px'
-//            }, 'fast');
-//            
-//            $gsLines.eq(5).animate({
-//                 top: '+=25px'
-//            }, 'fast');
-//            
-//            if(scrollHeight - scrollTop === $(target).innerHeight()) {
-//                $gsLines.eq(5).animate({
-//                     top: '-=25px'
-//                }, 'fast'); 
-//            }
-//            
-//        } else {
-//            $gsLines.eq(0).animate({
-//                 top: '-=25px'
-//            }, 'fast');
-//            
-//            $gsLines.eq(1).animate({
-//                 top: '-=25px'
-//            }, 'fast')
-//            
-//            $gsLines.eq(2).animate({
-//                 top: '-=25px'
-//            }, 'fast');
-//            
-//            $gsLines.eq(3).animate({
-//                 top: '-=25px'
-//            }, 'fast');
-//            
-//            $gsLines.eq(4).animate({
-//                 top: '-=25px'
-//            }, 'fast');
-//            
-//            $gsLines.eq(5).animate({
-//                 top: '-=25px'
-//            }, 'fast');
-//            
-//            if($(this).scrollTop() < 2) {
-//                $gsLines.animate({top: "250px"}, 'fast');
-//            }
-//        }
-//
-//        CurrentScroll = NextScroll; 
-//        
-//    });
-//  
