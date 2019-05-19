@@ -6,12 +6,16 @@ $(function() {
     var $homeTopSlider = $('.home-top-slider'),
         $fbSlider = $('.feedback__slider'),
         $gallerySlider = $('.gallery__slider');
+    
+    var svgcCircle = `                        <svg height="19" width="19">
+                            <circle class="circle" cx="9" cy="9" r="7" stroke="#231f20" stroke-width="4" fill-opacity="0"></circle>
+                        </svg>`;
     $homeTopSlider.slick({
         autoplay: true,
         speed: 1000,
         dots: true,
         customPaging: function(slide, index) {
-            return `<div class="bg"></div>`;
+            return '<div class="bg">'+ svgcCircle +'</div>';
         } 
     });
     

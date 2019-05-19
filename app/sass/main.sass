@@ -961,8 +961,6 @@ main
             border-radius: 50%
             &:last-child
                 margin-right: 0
-            &.slick-active
-                background-color: $accent
             .bg
                 position: absolute
                 left: 19%
@@ -971,6 +969,20 @@ main
                 height: 11px
                 background-color: #fff
                 border-radius: 50%
+                svg
+                    position: absolute
+                    top: -3px
+                    left: -3px
+                    opacity: 0
+                    .circle
+                        stroke-dasharray: 1000
+                        stroke-dashoffset: 28
+            &.slick-active
+                .bg
+                    svg
+                        opacity: 1
+                        .circle
+                            animation: stroke .5s forwards
                 //&::before
                     content: ""
                     border: solid .3em
