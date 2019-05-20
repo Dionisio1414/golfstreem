@@ -59,33 +59,41 @@
             font-size: 14px
             text-transform: uppercase
             position: absolute
-            left: 19px
+            left: 13px
             top: 10px
             background-color: #fff
             white-space: nowrap
             pointer-events: none
+            transition: all .5s ease-in-out
             color: $subaccent
             b
                 position: relative
                 left: 0
-                transition: all .15s ease-in-out
-            img
+                transition: all .5s ease-in-out
+            img,
+            svg
                 position: absolute
                 top: 5px
                 right: -20px
-                transition: all .15s ease-in-out
+                transition: all .5s ease-in-out
         &:hover
             b
+                color: #70C2DC
                 left: -5px
             span
-                img
+                img,
+                svg
                     right: -22px
+                    g
+                        use
+                            stroke: #70C2DC
         &.submit
             input
                 height: 55px
             span
                 top: 16px
-                img
+                img,
+                svg
                     position: absolute
                     top: 50%
                     transform: translateY(-50%)

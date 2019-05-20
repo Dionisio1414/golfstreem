@@ -8,8 +8,9 @@ $(function() {
         $gallerySlider = $('.gallery__slider');
     
     var svgcCircle = `                        <svg height="19" width="19">
-                            <circle class="circle" cx="9" cy="9" r="7" stroke="#231f20" stroke-width="4" fill-opacity="0"></circle>
+                            <circle class="circle" cx="9" cy="9" r="7" stroke="#0093c1" stroke-width="4" fill-opacity="0"></circle>
                         </svg>`;
+    
     $homeTopSlider.slick({
         autoplay: true,
         speed: 1000,
@@ -17,12 +18,11 @@ $(function() {
         customPaging: function(slide, index) {
             return '<div class="bg">'+ svgcCircle +'</div>';
         } 
-    });
-    
-    $homeTopSlider.on('afterChange', function(e, slick, currentSlide, nextSlide) {
-        var $crSlide = currentSlide; 
+    })
+    .on('beforeChange', function(e, slick, currentSlide) {
+        var $crSlide = currentSlide;
         $('main .custom-dots li').eq($crSlide).addClass('slick-active').siblings().removeClass('slick-active');
-    });
+    });   
     
     var amount;
     $fbSlider.on('init', function(event, slick) {
@@ -83,6 +83,9 @@ $(function() {
                 opacity: 1,
                 top: 95 + "px"
             }, 250);
+            $('.lines-bg').animate({
+                opacity: 0
+            }, 300);
         } else {
             $(this).removeClass('open');
             $blr.removeClass('bluring');
@@ -92,15 +95,18 @@ $(function() {
             }, 250, function() {
                 $(this).hide();
             });
+            $('.lines-bg').animate({
+                opacity: 1
+            }, 300);
         }
     });
     
     $('form .form-row div > div input, form .form-row div > div textarea').focus(function() {
-        $(this).parent().addClass('focusing'); 
+        $(this).parent().parent().addClass('focusing'); 
     });
     
     $('form .form-row div > div input, form .form-row div > div textarea').blur(function() {
-        $(this).parent().removeClass('focusing'); 
+        $(this).parent().parent().removeClass('focusing'); 
     });
     
     var $dotsClone = $homeTopSlider.find('.slick-dots').clone(true),
@@ -304,7 +310,7 @@ $(function() {
             .css('display', 'block')
             .animate({
                 opacity: 1
-            }, 350);
+            }, 350); 
     });
     
     $srvcLinks.click(function(e) {
@@ -350,6 +356,9 @@ $(function() {
                 opacity: 1
             }, 350);
         $blr.addClass('bluring');
+        $('.lines-bg').animate({
+            opacity: 0
+        }, 300);
     });
     
     $('.modal-form.call .modal-close').click(function() {
@@ -358,6 +367,9 @@ $(function() {
         }, 250, function() {
            $(this).css('display', 'none'); 
         });
+        $('.lines-bg').animate({
+            opacity: 1
+        }, 300);
     });
     
     $('main .feedback [data-button=btn-arrow-text]').click(function(e) {
@@ -489,32 +501,17 @@ $(function() {
         })
     });
     
+    $('.modal-form.orders .modal-close').click(function() {
+        if($(window).width() < 576) $blr.addClass('bluring'); 
+    });
     
-    var $listFiles = $('.jobs__description .resume-form form .form-row .upload+div');
+    $('.prices .container:last-child .accordion__item a').click(function(e) {
+        e.preventDefault();
+    });
+    
+    $('.modal-form.success-send .modal-close').click(function() {
+       $(this).parent().removeClass('opened');
+    });
 });
 
-var testInput = document.querySelector('.jobs__description .resume-form .upload #files');
-var testArr = [], url = 'img/icons/file.svg';
-testInput.addEventListener('change', function(e) {
-    testArr = [];
-    var row, fileName, icon;
-    var img = document.createElement('img');
-    img.setAttribute('src', url);
-    for(var i = 0; i < testInput.files.length; i++) {
-        row = document.createElement('div');
-        row.classList.add('file-row');
-        icon = document.createElement('div');
-        icon.appendChild(img);
-        icon.classList.add('icon');
-        fileName = document.createElement('div');
-        fileName.classList.add('filename');
-        testArr.push(testInput.files[i]);
-        for(var item in testArr) {
-            fileName.innerHTML = testArr[item]['name'];
-            row.appendChild(icon);
-            row.appendChild(fileName);
-            document.querySelector('.jobs__description .resume-form form .form-row .upload+div').appendChild(row);
-        }
-    }
-});
 

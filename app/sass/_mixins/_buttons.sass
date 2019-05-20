@@ -7,6 +7,9 @@
     border: 2px solid $subaccent
     color: $subaccent
     transition: all .5s ease
+    &:active,
+    &:visited
+        color: $subaccent
     span
         position: absolute
         left: 19px
@@ -16,18 +19,28 @@
             position: relative
             left: 0
             transition: all .5s ease-in-out
-        img
+        img,
+        svg
             position: absolute
             top: 5px
             right: -20px
-            transition: all .15s ease-in-out
+            transition: all .5s ease-in-out
+            g
+                use
+                    transition: all .5s ease-in-out
     &:hover
-        color: $subaccent
+        color: #70C2DC
         span    
             b
                 left: -5px  
-            img
+                color: #70C2DC
+            img,
+            svg
                 right: -22px
+            svg
+                g
+                    use
+                        stroke: #70C2DC
     
 @mixin btn-arrow
     position: relative
@@ -48,6 +61,10 @@
             width: 20px
             height: 20px
             transform: rotate(180deg)
+        svg
+            g
+                use
+                    transition: all .5s ease-in-out
     &:hover
         span    
             left: 20px
@@ -69,7 +86,7 @@
         width: 34%
         background-color: $subaccent
         height: 2px
-        transition: all .35s ease-in-out
+        transition: all .5s ease-in-out
     &:hover 
         text-decoration: none
         &::before

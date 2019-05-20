@@ -129,12 +129,22 @@
     
     .popup-menu
         padding-top: 10px
+        .wrapper-language
+            width: 15%
+            margin-top: 30px
+            
     
     .modal-form.call
         width: 100%
     
     .feedback-socials
         right: 50px
+        
+    main 
+        .custom-dots 
+            li 
+                .bg
+                    left: 22%
     
     /* HEADER */
     
@@ -580,7 +590,57 @@
                 
     /* End subservice page */
     
+    
+    .modal-form.calculating
+        width: 100%
+        height: auto
+        padding-left: 15px
+        padding-right: 15px
+        .modal-bottom 
+            form 
+                .send
+                    margin-right: 125px
+    
 +media-breakpoint-down(xs)
+    
+    .modal-form.success-send
+        width: 100%
+        left: 0
+        transform: translateX(0%)
+        transform: translateY(-50%)
+        .modal-bottom
+            width: 100%
+            padding-left: 15px
+            padding-right: 15px
+            left: 0
+            transform: translateY(-50%)
+            h2 
+                font-size: 24px
+                + p
+                    font-size: 12px
+    
+    .modal-form.calculating 
+        .select-language
+            &.after,
+            &.before
+                margin: 0
+            &.after
+                margin-top: 15px
+            &.before
+                margin-top: 15px
+        .modal-top 
+            padding-left: 15px
+            h2
+                font-size: 24px
+                line-height: 28px
+        .modal-bottom
+            .message
+                margin-right: 0!important
+    
+    .feedback-socials
+        > a 
+            span
+                display: none
     
     .modal-form.orders
         .modal-top
@@ -663,6 +723,7 @@
         &__logo
             img
                 max-width: 400%
+                height: 50px
         &__links
             margin: 0
             li
@@ -701,7 +762,7 @@
     
     .wave
         &__caption
-            max-width: 270px
+            max-width: 410px
         &.home 
             h1
                 font-size: 28px
@@ -724,13 +785,13 @@
                 padding: 25px
         .services 
             h2    
-                margin-top: 3.5rem
+                margin-top: 35px
                 font-size: 24px
             [data-button=btn-arrow-text]
                 margin-top: 4rem
         .articles 
             h2
-                margin-top: 3.5rem
+                margin-top: 35px
                 font-size: 24px
             .dots-caption
                 div
@@ -741,7 +802,7 @@
             .articles-arrows
                 margin-top: 25px
             [data-button=btn-arrow-text]
-                margin-top: 5rem
+                margin-top: 49px
             &__slider 
                 h3
                     font-size: 20px
@@ -1067,6 +1128,17 @@
     
     
     .feedback-socials
-        right: auto
         left: 20px
+        right: auto
         bottom: 20px
+        
+    main 
+        .articles 
+            .articles-arrows 
+                li:first-child
+                    margin-right: 8px    
+                
+@media screen and (max-width: 375px)
+    .wave
+        &__caption
+            width: 320px

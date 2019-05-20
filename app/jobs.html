@@ -243,13 +243,13 @@
                                     <div class="form-row">
                                         <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 d-flex flex-column flex-lg-row">
                                             <div class="upload">
-                                                <label for="files">
+                                                <label for="file">
                                                     <img src="img/icons/download.svg" alt="">
                                                     <span>
                                                         Добавить файлы 
                                                     </span>
                                                 </label>
-                                                <input type="file" id="files">
+                                                <input type="file" id="file">
                                             </div>
                                             <div>
                                                 <!-- List files -->
@@ -420,6 +420,57 @@
     <!-- End feedback buttons -->
 	<script src="js/libs.min.js"></script>
 	<script src="js/common.js"></script>
+	<script>
+        var testInput = document.querySelectorAll('.jobs__description .resume-form .upload #file')[0];
+        console.log(testInput);
+        var testArr = [], url = 'img/icons/file.svg';
+        testInput.addEventListener('change', function(e) {
+            testArr = [];
+            var row, fileName, icon;
+            var img = document.createElement('img');
+            img.setAttribute('src', url);
+            for(var i = 0; i < testInput.files.length; i++) {
+                row = document.createElement('div');
+                row.classList.add('file-row');
+                icon = document.createElement('div');
+                icon.appendChild(img);
+                icon.classList.add('icon');
+                fileName = document.createElement('div');
+                fileName.classList.add('filename');
+                testArr.push(testInput.files[i]);
+                for(var item in testArr) {
+                    fileName.innerHTML = testArr[item]['name'];
+                    row.appendChild(icon);
+                    row.appendChild(fileName);
+                    document.querySelector('.jobs__description .resume-form form .form-row .upload+div').appendChild(row);
+                }
+            }
+        });
+        
+        
+//        var $fileInput = document.querySelectorAll('.jobs__description .resume-form .upload #file')[0];
+//        var filesArray = [], url = 'img/icons/file.svg';
+//        
+//        $fileInput.on('change', function(e) {
+//            filesArray = [];
+//            var row, filename, icon, img = $('<img>');
+//            img.attr('src', url);
+//            console.log($(this).files);
+//            for(var i = 0; i < $fileInput.files.length; i++) {
+//                row = $('<div class="file-row"></div>');
+//                icon = $('<div class="icon"></div>');
+//                icon.append(img);
+//                filename = $('<div class"filename"></div>');
+//                filesArray.push($fileInput.files[i]);
+//                for(var item in filesArray) {
+//                    filename.html(filesArray[item]['name']);
+//                    row.append(icon);
+//                    row.append(filename);
+//                    $('.jobs__description .resume-form form .form-row .upload+div').append(row);
+//                }
+//            }
+//        });
+    </script>
 
 </body>
 </html>
