@@ -46,8 +46,7 @@ gulp.task('js', function() {
         'app/libs/jqueryMask/jquery.inputmask.bundle.js',
 		'app/libs/particleWave/particleWave.js',
 		'app/libs/jqueryUi/jquery-ui.js',
-		'app/libs/niceScroll/jquery.nicescroll.js',
-		'app/libs/wowJs/wow.js'
+		'app/libs/niceScroll/jquery.nicescroll.js'
 		])
 	.pipe(concat('libs.min.js'))
     .pipe(uglify()) // Mifify js (opt.)

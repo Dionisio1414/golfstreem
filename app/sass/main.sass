@@ -98,7 +98,14 @@ h4
 
 .wpcf7-response-output.wpcf7-display-none.wpcf7-validation-errors
     display: none!important
-
+.wpcf7-not-valid-tip
+    font-family: $default-font
+    font-size: 12px!important
+    letter-spacing: .3px
+    color: #ff6d6d!important
+.wpcf7-not-valid
+    border-color: #ff6d6d!important
+    
 .modal-form
     position: fixed
     top: 0
@@ -165,8 +172,9 @@ h4
         top: 50%
         transform: translate(-50%, -50%)
         padding: 0
+        z-index: 10000
         &.opened
-            display: block
+            display: block!important
             opacity: 1
         .modal-close
             top: auto
@@ -201,6 +209,43 @@ h4
             
     &.orders
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08)
+        .upload
+            + div
+                position: static
+                display: flex
+                flex-direction: column
+                justify-content: flex-end
+                margin: 0!important
+                margin-bottom: 15px!important
+                padding-bottom: 1px
+                &::before,
+                &::after
+                    display: none
+                .file-row
+                    position: static
+                    margin: 0
+                    margin-bottom: 5px
+                    &::before,
+                    &::after
+                        display: none
+                    &:last-child
+                        margin-bottom: 0
+                    .icon
+                        display: inline-block
+                        margin: 0
+                        margin-right: 10px
+                        &::before,
+                        &::after
+                            display: none
+                    .filename
+                        display: inline-block
+                        margin: 0
+                        font-size: 12px
+                        letter-spacing: .3px
+                        color: $subaccent
+                        &::before,
+                        &::after
+                            display: none
     &.review
         width: 730px
         height: 520px
@@ -308,12 +353,14 @@ h4
             margin-bottom: 40px
             form
                 .form-row
-                    &:first-child
-                        > div
-                            &:first-child
-                                margin-right: 15px
-                            &:last-child
-                                margin-left: 15px
+                    div
+                        &:first-child
+                            > div
+                                margin-right: 20px
+                        &:last-child
+                            > div
+                                margin-left: 20px
+                        
     &.calculating
         width: 730px
         height: 591px
@@ -329,9 +376,9 @@ h4
         .select-language
             position: relative
             &.before
-                margin-right: 15px
+                margin-right: 9px
             &.after
-                margin-left: 15px
+                margin-left: 9px
             input
                 cursor: pointer
             &.open
@@ -408,6 +455,41 @@ h4
                     margin-top: 30px
                 .upload
                     margin-top: 50px
+                    margin-bottom: 15px
+                    + div
+                        position: static
+                        display: flex
+                        flex-direction: column
+                        justify-content: flex-start
+                        margin: 0!important
+                        padding-bottom: 1px
+                        &::before,
+                        &::after
+                            display: none
+                        + p
+                            display: none
+                        .file-row
+                            position: static
+                            margin: 0
+                            margin-bottom: 5px
+                            &::before,
+                            &::after
+                                display: none
+                            &:last-child
+                                margin-bottom: 0
+                            .icon
+                                display: inline-block
+                                margin: 0
+                                margin-right: 5px
+                            .filename
+                                display: inline-block
+                                margin: 0
+                                font-size: 12px
+                                letter-spacing: .3px
+                                color: $subaccent
+                                &::before,
+                                &::after
+                                    display: none
                     
 .modal-overlay
     position: fixed
@@ -640,7 +722,7 @@ h4
             top: 0
             left: 50%
             transform: translateX(-50%)
-            z-index: 2
+            z-index: -1
             opacity: 0
             width: 32px
             height: 100%
@@ -870,57 +952,6 @@ h4
 
 /* End particles area */                
 
-/* bg lines */
-
-//.fix
-//    text-align: center
-//    position: fixed
-//    top: 0
-//    width: 100%
-//    height: 100%
-//    display: -webkit-flex
-//    display: -moz-flex
-//    display: -ms-flex
-//    display: -o-flex
-//    display: flex
-//    justify-content: center
-//    align-items: center
-//    .container
-//        margin: auto
-//        width: 100%
-//        position: absolute
-//        top: 0
-//        bottom: 0
-//        right: 0
-//        left: 0
-//        .wrapper
-//            display: flex
-//            margin: 0 -15px
-//            height: 100vh
-//            margin: auto
-//            width: 100%
-//            position: absolute
-//            top: 0
-//            left: 0
-//            right: 0
-//            bottom: 0
-//            .column
-//                position: relative
-//                padding: 0 15px
-//                flex: 0 0 33.3%
-//                max-width: 33.3%
-//                background-clip: padding-box
-//                &::before
-//                    content: ""
-//                    position: absolute
-//                    top: 0
-//                    bottom: 0
-//                    width: 1px
-//                    margin: auto
-//                    background: linear-gradient(to bottom, #fff 20%, #C4E1EB 50%, #fff 70%)
-            
-
-
 .lines-bg
     text-align: left
     position: fixed
@@ -1042,34 +1073,6 @@ main
                         .circle
                             animation: stroke 10s ease-in-out forwards
                             
-                //&::before
-                    content: ""
-                    border: solid .3em
-                    border-bottom-color: $subaccent
-                    border-left-color: $subaccent
-                    border-right-color: transparent
-                    border-top-color: transparent
-                    border-radius: 50%
-                    height: .75em
-                    left: 0
-                    position: absolute
-                    top: 0
-                    transform: rotate(45deg)
-                    width: .75em
-                    z-index: 1
-                    animation: upper 2s linear infinite
-                //&::after
-                    content: ""
-                    border: solid .3em #fff
-                    border-radius: 50%
-                    height: .75em
-                    left: 0
-                    top: 0
-                    position: absolute
-                    transform: rotate(45deg)
-                    width: .75em
-                    z-index: 0
-                    animation: lower 2s linear infinite
     section
         h2
             position: relative
@@ -1110,13 +1113,6 @@ main
             span
                 margin-left: -40px
                 max-width: 307px
-            //&::before
-                counter-increment: heading
-                content: "0" counter(heading)""
-                font-family: "Montserrat Bold", sans-serif
-                font-size: 64px
-                opacity: .11
-                color: $subaccent
         p
             font-family: "OpenSans Regular", sans-serif
             font-size: 14px
@@ -1213,7 +1209,14 @@ main
         [data-button="btn-arrow-text"]
             padding-right: 51px
             top: 38px
-        &__slider       
+        &__slider
+            .slick-list
+                margin: 0 -15px
+                .slick-track
+                    .slick-slide
+                        > div
+                            padding: 0 15px
+                            
             .user-info
                 margin-bottom: 32px
                 .name
@@ -2018,6 +2021,7 @@ main
                     font-size: 14px
                     letter-spacing: .35px
                     text-decoration: none
+                    text-transform: capitalize
                     color: $subaccent
                 &::before
                     content: ""
@@ -2079,6 +2083,7 @@ main
                     margin: 0
                     margin-left: 11px
                     margin-bottom: 25px
+                    list-style-image: url(../img/icons/dot-list.svg)
                     li
                         font-size: 14px
                         letter-spacing: .35px

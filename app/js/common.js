@@ -1,7 +1,5 @@
 $(function() {
     
-    new WOW().init();
-    
     var $rangeSlider = $('main .feedback .range-slider');
     var $homeTopSlider = $('.home-top-slider'),
         $fbSlider = $('.feedback__slider'),
@@ -153,46 +151,6 @@ $(function() {
         }
     });
     
-    $('main .feedback__slider .user-info .rating-stars ul li').hover(function() {
-        var onStar = parseInt($(this).data('value'), 10); 
-        $(this).parent().children('li.star').each(function(e) {
-            if (e < onStar) {
-                $(this).addClass('hover');
-            } else {
-                $(this).removeClass('hover');
-            }
-        });
-     }, function() {
-        $(this).parent().children('li.star').each(function(e) {
-            $(this).removeClass('hover');
-        }); 
-     });
-    
-    
-    $('main .feedback__slider .user-info .rating-stars ul li').click(function() {
-        var onStar = parseInt($(this).data('value'), 10), stars = $(this).parent().children('li.star');
-    
-        for (var i = 0; i < stars.length; i++) {
-          $(stars[i]).removeClass('selected');
-        }
-
-        for (var i = 0; i < onStar; i++) {
-          $(stars[i]).addClass('selected');
-        }
-    });
-    
-/*    $('.modal-form.review .modal-bottom form .rating ul li').click(function() {
-        var onStar = parseInt($(this).data('value'), 10), stars = $(this).parent().children('li.star');
-    
-        for (var i = 0; i < stars.length; i++) {
-          $(stars[i]).removeClass('selected');
-        }
-
-        for (var i = 0; i < onStar; i++) {
-          $(stars[i]).addClass('selected');
-        }
-    });*/
-    
     var cStars = function(newPos) {
         $('.modal-form.review .modal-bottom form .rating ul li').removeClass('selected');
         for(var i = 0; newPos + 1 > i; i++) {
@@ -212,21 +170,6 @@ $(function() {
     }, function() {
         cStars(+starsCount - 1);
     });
-    
-//    $('.modal-form.review .modal-bottom form .rating ul li').hover(function() {
-//        var onStar = parseInt($(this).data('value'), 10); 
-//        $(this).parent().children('li.star').each(function(e) {
-//            if (e < onStar) {
-//                $(this).addClass('hover');
-//            } else {
-//                $(this).removeClass('hover');
-//            }
-//        });
-//    }, function() {
-//        $(this).parent().children('li.star').each(function(e) {
-//            $(this).removeClass('hover');
-//        }); 
-//    });
     
     $('.feedback .range-slider').slider({
         range: "min",
@@ -335,8 +278,9 @@ $(function() {
         }
     });
     
-    $('.modal-form .modal-close').click(function() {
-        $('.modal-form')
+    $('.modal-form.calculating .modal-close').click(function() {
+        $(this)
+            .parent()
             .animate({
                 opacity: 0
             }, 250, function() {
@@ -370,16 +314,7 @@ $(function() {
         $('.lines-bg').animate({
             opacity: 1
         }, 300);
-    });
-    
-    $('main .feedback [data-button=btn-arrow-text]').click(function(e) {
-        e.preventDefault();
-        $('.modal-form.review')
-            .css('display', 'block')
-            .animate({
-                opacity: 1
-            }, 350);
-        $blr.addClass('bluring');
+        $blr.removeClass('bluring');
     });
     
     $('.modal-form.review .modal-close').click(function() {
@@ -498,7 +433,7 @@ $(function() {
             } else {
                 $('.dots-caption').eq(i).removeClass('fill');
             }   
-        })
+        });
     });
     
     $('.modal-form.orders .modal-close').click(function() {
@@ -510,8 +445,55 @@ $(function() {
     });
     
     $('.modal-form.success-send .modal-close').click(function() {
-       $(this).parent().removeClass('opened');
+        $(this).parent().removeClass('opened');
+        $blr.removeClass('bluring');
     });
+    
+    $('.jobs__tabs ul li a').click(function(e) {
+        e.preventDefault();
+        $(this).parent().addClass('active').siblings().removeClass('active');
+        $('.jobs__tab-content .tab').removeClass('active').eq($(this).parent().index()).addClass('active');
+    });
+    
+    $('.modal-form.orders .modal-close').click(function() {
+        $(this)
+            .parent()
+            .animate({
+                opacity: 0
+            }, 350, function() {
+                $(this).css('display', 'none')
+            }); 
+    });
+    
+    $('.attendance__navigation .anchors ul li a, .languages__navigation .anchors ul li a').click(function() {
+        $(this).parent().addClass('active').siblings().removeClass('active');
+    });
+    
+    $('main .relationship form').submit(function() {
+        if($(this).find('input').hasClass('wpcf7-not-valid')) {
+            console.log(true);
+        }
+    });
+    
+//    var $win = $(window);
+//    var $sidebar = $('.attendance__navigation .anchors');
+//    var $sidebarTop = $sidebar.position().top;
+//    var $sidebarHeight = $sidebar.height();
+//    var $footer = $('footer');
+//    var $footerTop = $footer.position().top;
+//    
+//    $win.scroll(function(e) {
+//        var scrollTops = $win.scrollTop();
+//        var topPosition = Math.max(0, $sidebarTop - scrollTops);
+//        if(scrollTops + $sidebarHeight > $footerTop) {
+//            var topPosition = Math.min(topPosition, $footerTop - $scrollTop - $sidebarHeight);
+//        }
+//        
+//        $sidebar.css({
+//            paddingTop: "+=" + topPosition + "
+//        })
+//    });
+    
 });
 
 

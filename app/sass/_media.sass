@@ -161,7 +161,7 @@
         &__logo 
             img
                 max-width: 150%
-                height: auto
+                height: 58px
     
     /* END HEADER */
     
@@ -408,7 +408,7 @@
                     font-size: 13px
         &__logo 
             img
-                height: auto
+                height: 50px
         .toggle-mnu
             margin-top: 13px
             > span
@@ -986,6 +986,8 @@
                     margin-right: 31px
                     a
                         font-size: 12px
+                        
+        //.jobs__description .resume-form form .form-row>div:last-child div
         .caption-bg 
             + div 
                 h2
@@ -1010,7 +1012,7 @@
                         width: 100%
                     .form-row 
                         .message
-                            margin-top: 30px
+                            margin-top: 0
                             margin-right: 0!important
                         &:first-child
                             > div
@@ -1018,9 +1020,13 @@
                                     div
                                         margin-bottom: 30px
                                         margin-right: 0
+                                        &:last-child
+                                            div
+                                                margin-left: 0
                                 &:last-child
                                     div
                                         margin-left: 0
+                                    
     
     /*  End jobs page */
     
@@ -1136,7 +1142,37 @@
         .articles 
             .articles-arrows 
                 li:first-child
-                    margin-right: 8px    
+                    margin-right: 8px  
+                
+    .jobs__description .resume-form form .form-row>div:last-child div
+        margin-left: 0
+    .jobs__description .resume-form form .form-row>div:first-child div
+        margin-right: 0
+    .jobs__description .resume-form form input:not([type=submit]), .jobs__description .resume-form form textarea
+        margin-bottom: 22px
+    .jobs__description .resume-form form .form-row .upload
+        margin-top: 0
+    .jobs__description .resume-form form .form-row .send
+        margin-top: 0
+        
+    .modal-form.calculating
+        height: 100%
+        .modal-close
+            top: 10px
+            right: 15px
+    main .relationship form .form-row div:last-of-type div
+        margin-left: 0
+    .modal-form.call 
+        .modal-bottom 
+            form 
+                .form-row 
+                    div
+                        &:first-child 
+                            > div
+                                margin-right: 0
+                        &:last-child
+                            > div
+                                margin-left: 0
                 
 @media screen and (max-width: 375px)
     .wave
