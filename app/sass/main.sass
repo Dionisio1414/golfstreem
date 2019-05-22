@@ -105,6 +105,15 @@ h4
     color: #ff6d6d!important
 .wpcf7-not-valid
     border-color: #ff6d6d!important
+    background-image: url(../img/icons/invalid_field_icon.svg)
+    background-repeat: no-repeat
+    background-position: 97% center
+    &::placeholder
+        color: #ff6d6d
+    
+input, textarea, select
+    border-radius: 0
+    
     
 .modal-form
     position: fixed
@@ -1445,6 +1454,17 @@ main
                         font-size: 14px
                         letter-spacing: .35px
                         color: #d5d5d5
+                        span
+                            svg
+                                width: 19px
+                                height: 18px
+                                position: relative
+                                z-index: 10
+                                g
+                                    use
+                                        stroke: $subaccent
+                        &.current
+                            color: $subaccent
                     &.active
                         a
                             color: $subaccent
@@ -1461,6 +1481,9 @@ main
                                 padding-left: 15px
                             svg
                                 transform: rotateY(360deg)
+                                g
+                                    use
+                                        stroke: #d5d5d5
                         &:hover
                             a
                                 span
@@ -1660,6 +1683,9 @@ main
             margin-bottom: 85px
         img
             margin-bottom: 43px
+            display: block
+            max-width: 100%
+            height: auto
         p
             font-size: 14px
             letter-spacing: .35px
@@ -1810,10 +1836,23 @@ main
             margin: 27px 0
             .image
                 margin-bottom: 33px
+                img
+                    display: block
+                    max-width: 100%
+                    height: auto
             .row
-                .row-images
-                    display: flex
-                    justify-content: space-between
+                .row-images    
+                    .image
+                        display: flex
+                        justify-content: space-between
+                        flex-wrap: wrap
+                        width: 100%
+                        img
+                            display: block
+                            max-width: 100%
+                            height: auto
+                            &:first-child
+                                margin-right: auto
                 p
                     &:last-child
                         margin-bottom: 0

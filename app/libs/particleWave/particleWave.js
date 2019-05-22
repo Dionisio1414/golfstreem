@@ -759,7 +759,7 @@ var SEPARATION = 100,
         var PI2 = Math.PI * 2;
         var material = new THREE.ParticleCanvasMaterial({
  
-            color: 0x0093c1, //0xD0D0D0
+            color: 0xD0D0D0,
             program: function(context) {
  
                 context.beginPath();
@@ -871,7 +871,7 @@ var SEPARATION = 100,
  
                 particle = particles[i++];
                 particle.position.y = (Math.sin((ix + count) * 0.3) * 50) + (Math.sin((iy + count) * 0.5) * 50);
-                particle.scale.x = particle.scale.y = (Math.sin((ix + count) * 0.3) + 1) * 3.5 + (Math.sin((iy + count) * 0.5) + 1) * 3.5;
+                particle.scale.x = particle.scale.y = (Math.sin((ix + count) * 0.3) + 1) * 2 + (Math.sin((iy + count) * 0.5) + 1) * 2;
  
             }
             

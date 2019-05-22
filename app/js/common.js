@@ -305,6 +305,22 @@ $(function() {
         }, 300);
     });
     
+    $('.modal-form.call .modal-bottom form').submit(function(e) {
+        if(!$(this).hasClass('invalid') && $(this).hasClass('sent')) {
+            return true;
+        } 
+            return false;
+    });
+    
+    $('.modal-form.calculating > .modal-bottom > div form').submit(function(e) {
+        var self = $(this);
+        if(!$(this).hasClass('invalid') && $(this).hasClass('sent')) {
+            return true;
+        }
+        
+        return false;
+     });
+    
     $('.modal-form.call .modal-close').click(function() {
         $(this).parent().animate({
             opacity: 0
@@ -336,6 +352,9 @@ $(function() {
             .animate({
                 opacity: 1
             }, 350);
+        $('.lines-bg').animate({
+            opacity: 0
+        }, 300);
         $blr.addClass('bluring');
     });
     
@@ -436,10 +455,6 @@ $(function() {
         });
     });
     
-    $('.modal-form.orders .modal-close').click(function() {
-        if($(window).width() < 576) $blr.addClass('bluring'); 
-    });
-    
     $('.prices .container:last-child .accordion__item a').click(function(e) {
         e.preventDefault();
     });
@@ -475,24 +490,21 @@ $(function() {
         }
     });
     
-//    var $win = $(window);
-//    var $sidebar = $('.attendance__navigation .anchors');
-//    var $sidebarTop = $sidebar.position().top;
-//    var $sidebarHeight = $sidebar.height();
-//    var $footer = $('footer');
-//    var $footerTop = $footer.position().top;
-//    
-//    $win.scroll(function(e) {
-//        var scrollTops = $win.scrollTop();
-//        var topPosition = Math.max(0, $sidebarTop - scrollTops);
-//        if(scrollTops + $sidebarHeight > $footerTop) {
-//            var topPosition = Math.min(topPosition, $footerTop - $scrollTop - $sidebarHeight);
-//        }
-//        
-//        $sidebar.css({
-//            paddingTop: "+=" + topPosition + "
-//        })
-//    });
+    var $win = $(window);
+    var $sidebar = $('.attendance__navigation .anchors, .languages__navigation .anchors');
+    var $sidebarTop = $sidebar.offset().top;
+    
+    $win.scroll(function(e) {
+        if($(this).scrollTop() > $sidebarTop && $(this).width() > 992) {
+            $sidebar.css('position', 'fixed').stop().animate({
+                marginTop: $(window).scrollTop() - 380
+            }, 1000);
+        } else {
+            $sidebar.css('position', 'static').stop().animate({
+                marginTop: 0
+            }, 1000);
+        }
+    });
     
 });
 
