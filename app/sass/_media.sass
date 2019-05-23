@@ -1209,7 +1209,14 @@
         ol 
             li
                 &:first-child
-                    margin-left: 10px    
+                    margin-left: 10px
+    .blog 
+        .pagination
+            .container
+                .row
+                    > div
+                        &:nth-child(2)
+                            padding: 0
                 
 @media screen and (max-width: 425px)
     .attendance
@@ -1220,3 +1227,7 @@
     .wave
         &__caption
             width: 320px
+            
+    .modal-form.call 
+        .modal-top
+            margin-top: 20%

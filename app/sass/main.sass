@@ -18,7 +18,9 @@
 	color: #fff
 
 html
-    overflow-x: hidden
+	overflow-x: hidden
+	&.hidden
+		overflow: hidden
 
 body
 	font-size: 16px
@@ -35,6 +37,8 @@ body
 			border-color: red
 		&:required:valid
 			border-color: green
+	&.hidden
+		overflow: hidden
 
 .img-responsive
 	display: block
@@ -113,6 +117,11 @@ h4
     
 input, textarea, select
     border-radius: 0
+
+.container,
+.container-fluid
+    position: relative
+ 
     
     
 .modal-form
@@ -218,6 +227,7 @@ input, textarea, select
             
     &.orders
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08)
+        overflow: auto
         .upload
             + div
                 position: static
@@ -377,6 +387,7 @@ input, textarea, select
         top: 50%
         left: 50%
         transform: translate(-50%, -50%)
+        overflow: auto
         .modal-bottom
             form
                 .send
@@ -1056,6 +1067,7 @@ main
             margin-right: 20px
             border-radius: 50%
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1)
+            pointer-events: none
             &:last-child
                 margin-right: 0
             .bg
@@ -1440,6 +1452,28 @@ main
                 font-size: 12px
     .pagination
         padding: 40px 0
+        margin-bottom: 80px
+        .container
+            .row
+                position: relative
+                margin: 0
+                &::before
+                    content: ""
+                    position: absolute
+                    width: 100%
+                    height: 1px
+                    top: -55px
+                    left: 0
+                    background-color: rgba(112,112,112,.07)
+                &::after
+                    content: ""
+                    position: absolute
+                    width: 100%
+                    bottom: -55px
+                    left: 0
+                    height: 1px
+                    background-color: rgba(112,112,112,.07)
+                    
         nav
             ul
                 padding: 0
@@ -1453,6 +1487,7 @@ main
                         font-family: "Montserrat Regular", sans-serif
                         font-size: 14px
                         letter-spacing: .35px
+                        border-color: #d5d5d5
                         color: #d5d5d5
                         span
                             svg
@@ -1462,7 +1497,8 @@ main
                                 z-index: 10
                                 g
                                     use
-                                        stroke: $subaccent
+                                        stroke: #d5d5d5
+                                        
                         &.current
                             color: $subaccent
                     &.active
@@ -2303,8 +2339,16 @@ main
                     width: 51px
             .scroll-box
                 max-height: 225px
-                overflow: hidden
+                overflow: auto
+                &::-webkit-scrollbar
+                    background-color: #e8e8e8
+                    width: 7px
+                &::-webkit-scrollbar-thumb
+                    background-color: $caption
+                    width: 7px
             .description
+                padding-right: 10px
+                
                 p
                     font-size: 14px
                     line-height: 21px
@@ -2469,6 +2513,13 @@ footer
         
         
 /* End footer */
+
+form
+    &.invalid
+        .focusing
+            &::before
+            &::after
+                display: none
 
 
 @import "media" // Always at the end
